@@ -1,0 +1,17 @@
+{
+  "group": "ohter",
+  "children": [
+    {
+      "path": "/video",
+      "name": "视频"
+    },
+    {
+      "path": "/drag",
+      "name": "拖拽"
+    },
+    {
+      "path": "/test",
+      "name": "测试"
+    }
+  ]
+}

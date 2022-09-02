@@ -1,0 +1,9 @@
+{
+  "group": "data",
+  "children": [
+    {
+      "path": "/button",
+      "name": "按钮"
+    }
+  ]
+}

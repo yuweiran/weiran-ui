@@ -1,0 +1,98 @@
+.header-anchor{
+  display: none;
+}
+
+.wrui-container {
+  color:#515a6e;
+  padding:0 20px
+}
+.wrui-container table{
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #EBEEF5;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  background: #fff;
+}
+
+.wrui-container table td,.wrui-container table th{
+  padding: 10px;
+    border: 1px solid #EBEEF5;
+    font-size: 14px;
+    font-weight: normal;
+    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+}
+
+
+.wrui-container table th{
+  font-weight: bold;
+  background: #fafafa;
+}
+
+.wrui-container .grid-demo{
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.wrui-container .color-aa{
+  background-color:#aaaaaa
+}
+.wrui-container .color-bb{
+  background-color:#bbbbbb
+}
+.wrui-container .color-cc{
+  background-color:#cccccc
+}
+
+.wrui-container .wr-button,.wrui-container .wr-input,.wrui-container .wr-textarea{
+  margin: 6px 10px;
+}
+
+.wrui-container .wr-drag-demo{
+  border: 1px solid #8a8a8a7d;
+  padding:0 4px;
+}
+.wrui-container .wr-drag-demo div{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding:0 20px;
+  border: 1px solid #8a8a8a7d;
+  margin: 4px 0;
+}
+.wrui-container .wr-drag-demo-selected{
+  color: #ffffff;
+  background-color: rgba(100, 149, 237,0.6);
+}
+.wrui-container .wr-drag-demo .drag-handle{
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-right: 10px;
+  cursor:grab;
+}
+.wrui-container .wr-drag-demo .drag-handle::before{
+  position: absolute;
+  top: 4px;
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: white;
+}
+.wrui-container .wr-drag-demo .drag-handle::after{
+  position: absolute;
+  bottom: 4px;
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: white;
+}
+.wrui-container .wr-drag-demo .drag-filter{
+  color:red;
+  border-color: red;
+}

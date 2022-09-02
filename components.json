@@ -1,0 +1,8 @@
+{
+"button":"./packages/button/index.js",
+"drag":"./packages/drag/index.js",
+"grid":"./packages/grid/index.js",
+"input":"./packages/input/index.js",
+"test":"./packages/test/index.js",
+"video":"./packages/video/index.js"
+}

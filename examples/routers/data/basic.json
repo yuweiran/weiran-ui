@@ -1,0 +1,21 @@
+{
+  "group": "basic",
+  "children": [
+    {
+      "path": "/button",
+      "name": "按钮"
+    },
+    {
+      "path": "/grid",
+      "name": "网格"
+    },
+    {
+      "path": "/icon",
+      "name": "图标"
+    },
+    {
+      "path": "/input",
+      "name": "输入框"
+    }
+  ]
+}
