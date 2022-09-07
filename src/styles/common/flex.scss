@@ -1,0 +1,38 @@
+
+.wr-jc-sb{
+  justify-content: space-between;
+}
+
+.wr-ai-c{
+  align-items: center;
+}
+
+.wr-flex{
+  display: flex;
+}
+
+.wr-jc-c{
+  justify-content: center;
+}
+
+.wr-fd-c{
+  flex-direction: column;
+}
+
+
+//垂直居中
+.wr-flex-ac{
+  @extend .wr-flex;
+  @extend .wr-ai-c;
+}
+//左右两边，垂直居中
+.wr-flex-ac-jb{
+  @extend .wr-flex-ac;
+  @extend .wr-jc-sb;
+}
+
+//左右垂直居中
+.wr-flex-ac-jc{
+  @extend .wr-flex-ac;
+  @extend .wr-jc-c;
+}

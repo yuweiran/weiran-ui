@@ -1,36 +1,64 @@
 <template>
-  <div>
-    <video ref="videoPlayer" class="video-js"></video>
+  <div :class="['wr-notify', `wr-notify-${position}`]">
+    <div class="wr-flex-ac-js wr-padding-bottom-10">
+      <div>{{ title || '提示' }}</div>
+      <div>关闭</div>
+    </div>
+    <div
+      class="animate__swing"
+      :style="{ color: type === 'error' ? 'red' : '' }"
+    >
+      {{ text }}
+    </div>
   </div>
 </template>
 
 <script>
-import videojs from 'video.js'
-
 export default {
-  name: 'wrTest',
-  props: {
-    options: {
-      type: Object,
-      default() {
-        return {}
-      },
-    },
-  },
+  name: 'wrNotify',
   data() {
     return {
-      player: null,
+      title: '',
+      text: '',
+      type: '',
+      position: 'top-right',
     }
   },
-  mounted() {
-    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
-      this.player.log('onPlayerReady', this)
-    })
-  },
-  beforeDestroy() {
-    if (this.player) {
-      this.player.dispose()
-    }
-  },
+  computed: {},
 }
 </script>
+
+<style lang="scss" scoped>
+.wr-notify {
+  position: absolute;
+  padding: 10px;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 0 2px #000;
+}
+.wr-notify-top-right {
+  right: 20px;
+}
+.wr-notify-top-left {
+  left: 20px;
+}
+.wr-notify-bottom-right {
+  right: 20px;
+}
+
+.wr-notify-bottom-left {
+  left: 20px;
+}
+
+.wr-flex-ac-js {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wr-padding-bottom-10 {
+  padding-bottom: 10px;
+}
+.wr-curser-pointer {
+  cursor: pointer;
+}
+</style>

@@ -2,27 +2,33 @@
 :::demo
   ```html
     <template>
-      <wr-test  :options="videoOptions"></wr-test>
+      <wr-button @click='test'>默认</wr-button>
+      <wr-button @click="setPosition('top-left')">左上</wr-button>
+      <wr-button @click="setPosition('bottom-right')">右下</wr-button>
+      <wr-button @click="setPosition('bottom-left')">左下</wr-button>
     </template>
     <script>
     export default {
       data(){
         return {
-          videoOptions:{
-            autoplay: true,
-            controls: true,
-            sources: [
-              {
-                src:'http://yuweiran.cn:9074/music.mp4',
-                type: 'video/mp4'
-              }
-            ]
-          }
+         
+        }
+      },
+      methods:{
+        test(){
+          this.$test({
+            text:'传入的提示信息',
+            type:'error'
+          })
+        },
+        setPosition(position){
+          this.$test({
+            text:'传入的提示信息',
+            position
+          })
         }
       }
     }
     </script>
   ```
 :::
-配置项见
-[videojs](https://videojs.com/guides/options/)

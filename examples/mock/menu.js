@@ -9,8 +9,8 @@
     }
     ,
 {
-      path:"grid",
-      text:"Grid    网格"
+      path:"container",
+      text:"Container    容器"
     }
     ,
 {
@@ -31,8 +31,28 @@
       path:"/wrui/data",
       children:[
         {
-      path:"button",
-      text:"Button    按钮"
+      path:"tag",
+      text:"Tag    标识"
+    }
+    ,
+{
+      path:"tree",
+      text:"Tree    树"
+    }
+    ,
+{
+      path:"table",
+      text:"Table    表格"
+    }
+    ,
+{
+      path:"progress",
+      text:"Progress    进度条"
+    }
+    ,
+{
+      path:"badge",
+      text:"Badge    徽章"
     }
     
       ],
@@ -43,8 +63,8 @@
       path:"/wrui/form",
       children:[
         {
-      path:"button",
-      text:"Button    按钮"
+      path:"radio",
+      text:"Radio    单选"
     }
     
       ],
@@ -55,8 +75,8 @@
       path:"/wrui/notice",
       children:[
         {
-      path:"button",
-      text:"Button    按钮"
+      path:"notify",
+      text:"Notify    提示"
     }
     
       ],

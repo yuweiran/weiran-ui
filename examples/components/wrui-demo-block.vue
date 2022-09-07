@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="demo-block-control" @click="showCode = !showCode">
-      <span class="iconfont icon-code"></span>
+      <span class="wr-icon-code"></span>
     </div>
   </div>
 </template>

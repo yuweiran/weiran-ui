@@ -42,6 +42,24 @@
     }
   }
 </script>
+<style>
+  .wr-drag-demo{
+    border: 1px solid #8a8a8a7d;
+    padding:0 4px;
+  }
+  .wr-drag-demo div{
+    height: 40px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    margin:4px 0;
+    border: 1px solid #8a8a8a7d;
+  }
+  .wr-drag-demo-selected{
+  color: #ffffff;
+  background-color: rgba(100, 149, 237,0.6);
+}
+</style>
 ```
 :::
 
@@ -230,6 +248,20 @@
     }
   }
 </script>
+<style>
+  .wr-drag-demo{
+    border: 1px solid #8a8a8a7d;
+    padding:0 4px;
+  }
+  .wr-drag-demo div{
+    height: 40px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    margin:4px 0;
+    border: 1px solid #8a8a8a7d;
+  }
+</style>
 ```
 :::
 
@@ -307,9 +339,40 @@
     },
   }
 </script>
-<style>
-  .drag-handle{
-
+<style lang="scss" scoped>
+  .wr-drag-demo{
+    border: 1px solid #8a8a8a7d;
+    padding:0 4px;
+    div{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding:0 20px;
+      border: 1px solid #8a8a8a7d;
+      margin: 4px 0;
+    }
+    .drag-handle{
+      display: inline-block;
+      width: 24px;
+      height: 20px;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin-right: 10px;
+      cursor:grab;
+      &::before,&::after{
+        position: absolute;
+        content: '';
+        height: 4px;
+        width: 100%;
+        background-color: white;
+      }
+      &::before{
+        top: 4px;
+      }
+      &::after{
+        top: 12px;
+      }
+    }
   }
 </style>
 ```
@@ -340,10 +403,22 @@
     },
   }
 </script>
-<style>
-  .drag-filter{
-    color:red;
-    border-color:red
+<style lang="scss" scoped>
+  .wr-drag-demo{
+    border: 1px solid #8a8a8a7d;
+    padding:0 4px;
+    div{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding:0 20px;
+      border: 1px solid #8a8a8a7d;
+      margin: 4px 0;
+    }
+    .drag-filter{
+      color:red;
+      border-color: red;
+    }
   }
 </style>
 ```

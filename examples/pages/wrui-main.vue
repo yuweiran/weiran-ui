@@ -9,6 +9,6 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-@import url('../assets/css/docs.css');
+<style lang="scss">
+@import '../assets/css/docs.scss';
 </style>

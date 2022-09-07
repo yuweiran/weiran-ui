@@ -21,8 +21,8 @@
     }
     ,
 {
-      path:"grid",
-      component:()=>import('@/docs/grid.md')
+      path:"container",
+      component:()=>import('@/docs/container.md')
     }
     ,
 {
@@ -40,12 +40,32 @@
     ,
 {
       path:"/wrui/data",
-      redirect:"/wrui/data/button",
+      redirect:"/wrui/data/tag",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
-      path:"button",
-      component:()=>import('@/docs/button.md')
+      path:"tag",
+      component:()=>import('@/docs/tag.md')
+    }
+    ,
+{
+      path:"tree",
+      component:()=>import('@/docs/tree.md')
+    }
+    ,
+{
+      path:"table",
+      component:()=>import('@/docs/table.md')
+    }
+    ,
+{
+      path:"progress",
+      component:()=>import('@/docs/progress.md')
+    }
+    ,
+{
+      path:"badge",
+      component:()=>import('@/docs/badge.md')
     }
     
       ],
@@ -53,12 +73,12 @@
     ,
 {
       path:"/wrui/form",
-      redirect:"/wrui/form/button",
+      redirect:"/wrui/form/radio",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
-      path:"button",
-      component:()=>import('@/docs/button.md')
+      path:"radio",
+      component:()=>import('@/docs/radio.md')
     }
     
       ],
@@ -66,12 +86,12 @@
     ,
 {
       path:"/wrui/notice",
-      redirect:"/wrui/notice/button",
+      redirect:"/wrui/notice/notify",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
-      path:"button",
-      component:()=>import('@/docs/button.md')
+      path:"notify",
+      component:()=>import('@/docs/notify.md')
     }
     
       ],

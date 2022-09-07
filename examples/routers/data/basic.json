@@ -6,8 +6,8 @@
       "name": "按钮"
     },
     {
-      "path": "/grid",
-      "name": "网格"
+      "path": "/container",
+      "name": "容器"
     },
     {
       "path": "/icon",

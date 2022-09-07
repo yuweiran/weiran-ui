@@ -13,10 +13,10 @@
     <wr-button type="warning">警告按钮</wr-button>
     <wr-button type="danger">危险按钮</wr-button>
     <wr-button type="primary">主要按钮</wr-button>
-    <wr-button type="danger" circle icon='icon-delete'></wr-button>
-    <wr-button type="success" circle icon='icon-dui'></wr-button>
-    <wr-button type="warning" circle icon='icon-cuo'></wr-button>
-    <wr-button type="danger"  icon='icon-cuo'>移除</wr-button>
+    <wr-button type="danger" circle icon='wr-icon-delete'></wr-button>
+    <wr-button type="success" circle icon='wr-icon-check'></wr-button>
+    <wr-button type="warning" circle icon='wr-icon-remove'></wr-button>
+    <wr-button type="danger"  icon='wr-icon-remove'>移除</wr-button>
     <wr-button size="medium">中型按钮</wr-button>
     <wr-button size="mini">小型按钮</wr-button>
     <wr-button plain>朴素按钮</wr-button>

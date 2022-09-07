@@ -2,8 +2,8 @@
   "group": "form",
   "children": [
     {
-      "path": "/button",
-      "name": "按钮"
+      "path": "/radio",
+      "name": "单选"
     }
   ]
 }

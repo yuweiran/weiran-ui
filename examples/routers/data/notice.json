@@ -2,8 +2,8 @@
   "group": "notice",
   "children": [
     {
-      "path": "/button",
-      "name": "按钮"
+      "path": "/notify",
+      "name": "提示"
     }
   ]
 }

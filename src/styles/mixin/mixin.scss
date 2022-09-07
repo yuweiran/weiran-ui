@@ -1,0 +1,17 @@
+@import "./config.scss";
+
+@mixin c($className){
+  $B: $namespace+'-'+$className !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}

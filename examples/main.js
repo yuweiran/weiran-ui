@@ -6,17 +6,25 @@ import Element from '../src/index.js';
 import hljs from 'highlight.js';
 import routes from './routers/routes';
 import demoBlock from './components/wrui-demo-block';
+import icons from  "./icons.json"
 
+//自己这个ui库的所有css
+import "../src/styles/index.scss"
+//animate.css动画//放组件库？？下下来吗需要，至少，我的ui库css里面需要引入？
 import "animate.css"
-import 'highlight.js/styles/rainbow.css'; // 代码高亮的css
-import 'video.js'
+//代码高亮的css
+import 'highlight.js/styles/rainbow.css'; 
+//video.js 要求的css,放组件库？下下来吗需要
 import'video.js/dist/video-js.min.css';
+
 import App from './App.vue'
 
 Vue.use(VueRouter);
 Vue.use(Element);
 Vue.component('wrui-demo-block',demoBlock)
+
 Vue.config.productionTip = false
+Vue.prototype.$icons = icons
 
 console.log(routes)
 const router = new VueRouter({

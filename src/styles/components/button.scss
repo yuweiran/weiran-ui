@@ -1,0 +1,127 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include c('button'){
+  background-color:  $wr-color-white;
+  font-size: 13px;
+  height: 32px;
+  padding: 0px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #606266;
+  cursor: pointer;
+  display: inline-flex;
+  @extend .wr-jc-c;
+  @extend .wr-ai-c;
+  @extend .wr-whitespace-nowrap;
+
+  & + & {
+    margin-left: 10px;
+  }
+  &:hover {
+    border: 1px solid rgb(100, 149, 237);
+    background-color: rgb(239, 244, 253);
+    color:$wr-color-primary
+  }
+  &-medium {
+    height: 36px;
+  }
+  &-mini {
+    height: 28px;
+    padding: 0 10px;
+  }
+  &.wr-button-plain{
+    background-color: #fff;
+    &:hover{
+      background-color: #fff
+    }
+  }
+  //按钮type
+  @each $type in danger,success,warning,primary{
+    $color:inherit;
+    @if $type==danger{
+      $color:$wr-color-danger
+    } @else if $type == success {
+      $color:$wr-color-success
+    } @else if $type == warning {
+      $color:$wr-color-warning
+    } @else {
+      $color:$wr-color-primary
+    }
+    &--#{$type}{
+      color: white;
+      background-color: $color;
+      border: 1px solid $color;
+      opacity: 0.9;
+      &:hover {
+        background-color: inherit;
+        background-color: $color;
+        border: 1px solid $color;
+        color: $wr-color-white ;
+        opacity: 0.8;
+        &:focus{
+          opacity: 1;
+        }
+      }
+
+      &.wr-button-plain{
+        color:$color ;
+        background-color: $wr-color-white;
+        opacity: 1;
+        &:hover{
+          background-color: $color;
+          color: $wr-color-white ;
+          opacity: 0.6;
+          &:focus{
+            opacity: 0.7;
+          }
+        }       
+      }
+    }
+  }
+
+  @at-root{
+      //wr-disabled禁用
+      @include c('disabled'){
+        user-select: none;
+        cursor: not-allowed;
+        color: #c0c4cc;
+        border-color: #ebeef5;
+        &:hover {
+          /* cursor: not-allowed; */
+          color: #c0c4cc;
+          background-image: none;
+          background-color: #fff;
+          border-color: #ebeef5;
+        }
+      }
+      //wr-dashed虚线边框
+      @include c(dashed){
+        border-style: dashed !important;
+        &:hover {
+          /* cursor: not-allowed; */
+          border-style: dashed !important;
+        }
+      }
+      //wr-button-circle-
+      //圆形按钮
+      @include c(button-circle){
+        border-radius: 50%;
+        padding: 0;
+        font-size: 16px;
+
+        &-mini{
+          height: 30px;
+          width: 30px;
+        }
+        &-small{
+          height: 34px;
+          width: 34px;
+        }
+        &-medium{
+          height: 38px;
+          width: 38px;
+        }
+      }
+  }
+
+}

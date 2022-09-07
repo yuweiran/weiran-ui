@@ -1,8 +1,15 @@
 {
+"badge":"./packages/badge/index.js",
 "button":"./packages/button/index.js",
+"container":"./packages/container/index.js",
 "drag":"./packages/drag/index.js",
-"grid":"./packages/grid/index.js",
 "input":"./packages/input/index.js",
+"notify":"./packages/notify/index.js",
+"progress":"./packages/progress/index.js",
+"radio":"./packages/radio/index.js",
+"table":"./packages/table/index.js",
+"tag":"./packages/tag/index.js",
 "test":"./packages/test/index.js",
+"tree":"./packages/tree/index.js",
 "video":"./packages/video/index.js"
 }

@@ -9,6 +9,8 @@
     "update:routes": "node ./build/bin/build-routes.js",
     "update:components": "node ./build/bin/build-components.json.js",
     "update:src/index": "node ./build/bin/build-entry.js",
+    "update:styles-file": "node ./build/bin/build-generate-css.js",
+    "update:icons": "node ./build/bin/build-icon-json.js",
     "lint": "vue-cli-service lint",
     "update-all": "npm run update:install & npm run update:routes & npm run update:components &  npm run update:src/index"
   },

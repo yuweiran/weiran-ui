@@ -1,53 +1,34 @@
 <template>
-  <div>
-    <video class="wr-video video-js" data-setup="{}" controls>
-      <source
-        v-for="video in videoData"
-        :key="video.id"
-        :src="video.src"
-        :type="video.type"
-      />
-      {{ alt }}
-    </video>
-  </div>
+  <video ref="videoPlayer" class="video-js"></video>
 </template>
 
 <script>
+import videojs from 'video.js'
+
 export default {
-  name: 'wrVideo',
+  name: 'wrTest',
   props: {
-    data: {
-      type: Array,
-    },
-    alt: String,
-    props: {
+    options: {
       type: Object,
       default() {
-        return {
-          src: 'src',
-          type: 'type',
-        }
+        return {}
       },
     },
   },
-  computed: {
-    videoData() {
-      const target = this.data.map((item, index) => {
-        return {
-          id: index,
-          src: item[this.props['src']],
-          type: item[this.props['type']],
-        }
-      })
-      return target
-    },
+  data() {
+    return {
+      player: null,
+    }
+  },
+  mounted() {
+    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
+      this.player.log('onPlayerReady', this)
+    })
+  },
+  beforeDestroy() {
+    if (this.player) {
+      this.player.dispose()
+    }
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.wr-video {
-  width: 100%;
-  height: auto;
-}
-</style>

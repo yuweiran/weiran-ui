@@ -2,8 +2,24 @@
   "group": "data",
   "children": [
     {
-      "path": "/button",
-      "name": "按钮"
+      "path": "/tag",
+      "name": "标识"
+    },
+    {
+      "path": "/tree",
+      "name": "树"
+    },
+    {
+      "path": "/table",
+      "name": "表格"
+    },
+    {
+      "path": "/progress",
+      "name": "进度条"
+    },
+    {
+      "path": "/badge",
+      "name": "徽章"
     }
   ]
 }

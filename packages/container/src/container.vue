@@ -90,7 +90,7 @@
 
 <script>
 export default {
-  name: 'wrGrid',
+  name: 'wrContainer',
   props: {
     type: {
       type: String,
@@ -116,12 +116,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.wr-full-height {
-  height: 100%;
-}
-.wr-overflow-auto {
-  overflow: auto;
-}
-</style>

@@ -1,0 +1,25 @@
+
+.wr-whitespace-nowrap{
+  white-space: nowrap;
+}
+.wr-full-height {
+  height: 100%;
+}
+.wr-overflow-auto {
+  overflow: auto;
+}
+.el-notification-fade-enter {
+  &.right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &.left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.el-notification-fade-leave-active {
+  opacity: 0;
+}

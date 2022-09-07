@@ -32,11 +32,12 @@ fs.readdir(COMPONENTS_DEFINE_PATH,{encoding:'utf-8'},(err,files)=>{
         upperName:uppercamelcase(`ws-${item}`),
         componetName:item
       })
-      fs.writeFile(componentPath,content,{encoding:'utf-8'},()=>{})
+      
     }else{
       content = render(INSTALL_TEMPLATE2,{
         upperName:uppercamelcase(item),
       })
     }
+    fs.writeFile(componentPath,content,{encoding:'utf-8'},()=>{})
   })
 })

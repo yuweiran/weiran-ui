@@ -1,0 +1,126 @@
+@import "./common.scss";
+
+.wrui-container {
+  color:#515a6e;
+  padding:0 20px;
+  
+  .header-anchor{
+    display: none;
+  }
+
+  table{
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid #EBEEF5;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    background: #fff;
+
+    td,th{
+      padding: 10px;
+        border: 1px solid #EBEEF5;
+        font-size: 14px;
+        font-weight: normal;
+        font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+    }
+    th{
+      font-weight: bold;
+      background: #fafafa;
+    }
+  }
+  //container
+  .grid-demo{
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  .color-aa{
+    background-color:#aaaaaa
+  }
+  .color-bb{
+    background-color:#bbbbbb
+  }
+  .color-cc{
+    background-color:#cccccc
+  }
+
+  .wr-button,.wr-input,.wr-textarea{
+    margin: 6px 10px;
+  }
+  
+  .wr-badge .wr-button{
+    margin: 0;
+  }
+
+  //拖动
+  .wr-drag-demo{
+    border: 1px solid #8a8a8a7d;
+    padding:0 4px;
+    div{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding:0 20px;
+      border: 1px solid #8a8a8a7d;
+      margin: 4px 0;
+    }
+    .drag-handle{
+      display: inline-block;
+      width: 24px;
+      height: 20px;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin-right: 10px;
+      cursor:grab;
+      &::before,&::after{
+        position: absolute;
+        content: '';
+        height: 4px;
+        width: 100%;
+        background-color: white;
+      }
+      &::before{
+        top: 4px;
+      }
+      &::after{
+        top: 12px;
+      }
+    }
+    .drag-filter{
+      color:red;
+      border-color: red;
+    }
+  }
+  .wr-drag-demo-selected{
+    color: #ffffff;
+    background-color: rgba(100, 149, 237,0.6);
+  }
+
+
+  //icon
+  .wr-icon-container{
+    font-size:40px;
+    .wr-icon-item--show{
+      width:90px;
+      height:120px;
+      display:inline-flex;
+      flex-direction:column;
+      margin:10px;
+      border:1px solid #0003;
+      .wr-icon-item{
+        flex:1;
+       @extend .f-ac-jc;
+      }
+      .wr-icon-text{
+        height:40px;
+        font-size:13px;
+        text-align: center;
+        line-height: 16px;
+        padding:4px 4px
+      }
+    }
+  }
+}

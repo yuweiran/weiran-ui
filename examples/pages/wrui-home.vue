@@ -1,16 +1,16 @@
 <template>
   <div style="max-width: 1200px; margin: 0 auto">
-    <wr-grid type="header-main">
+    <wr-container type="header-main">
       <template #header><HomeHeader /></template>
       <template #main>
-        <wr-grid type="aside-main">
+        <wr-container type="aside-main">
           <template #aside><HomeAside /></template>
           <template #main>
             <HomeMain />
           </template>
-        </wr-grid>
+        </wr-container>
       </template>
-    </wr-grid>
+    </wr-container>
   </div>
 </template>
 
