@@ -1,9 +1,9 @@
 
-import WsProgress from './src/progress';
+import WrProgress from './src/progress';
 
 /* istanbul ignore next */
-WsProgress.install = function(Vue) {
-  Vue.component(WsProgress.name, WsProgress);
+WrProgress.install = function(Vue) {
+  Vue.component(WrProgress.name, WrProgress);
 };
 
-export default WsProgress;
+export default WrProgress;

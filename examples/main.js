@@ -11,7 +11,7 @@ import icons from  "./icons.json"
 //自己这个ui库的所有css
 import "../src/styles/index.scss"
 //animate.css动画//放组件库？？下下来吗需要，至少，我的ui库css里面需要引入？
-import "animate.css"
+import animate from "animate.css"
 //代码高亮的css
 import 'highlight.js/styles/rainbow.css'; 
 //video.js 要求的css,放组件库？下下来吗需要
@@ -21,12 +21,12 @@ import App from './App.vue'
 
 Vue.use(VueRouter);
 Vue.use(Element);
+Vue.use(animate)
 Vue.component('wrui-demo-block',demoBlock)
 
 Vue.config.productionTip = false
 Vue.prototype.$icons = icons
 
-console.log(routes)
 const router = new VueRouter({
   mode: 'hash',
   base: __dirname,
@@ -34,9 +34,7 @@ const router = new VueRouter({
 });
 
 router.afterEach(
-  // route
    ()=> {
-  // https://github.com/highlightjs/highlight.js/issues/909#issuecomment-131686186
   Vue.nextTick(() => {
     const blocks = document.querySelectorAll('pre code:not(.hljs)');
     Array.prototype.forEach.call(blocks, hljs.highlightBlock);

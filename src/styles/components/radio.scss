@@ -1,0 +1,53 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+
+@include c(radio){
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  &+&{
+    margin-left: 10px;
+  }
+
+
+  @include c(radio-cover){
+  position: relative;
+  display: inline-block;
+   height: 14px;
+   width: 14px;
+   border-radius: 50%;
+   cursor: pointer;
+   border:1px solid #dcdfe6;
+
+   &.is-selected{
+    border-color: $wr-color-primary;
+    &::after{
+      background-color: $wr-color-primary;
+    }
+   }
+    &::after{
+      content:'';
+      height: 9px;
+      width: 9px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+     
+      border-radius: 50%;
+      transform: translate(-50%,-50%);
+    }
+    &+.wr-radio-label{
+      margin-left:10px ;
+    }
+  }
+  @include c(radio-inner){
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+}

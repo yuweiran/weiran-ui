@@ -1,9 +1,9 @@
 
-import WsInput from './src/input';
+import WrInput from './src/input';
 
 /* istanbul ignore next */
-WsInput.install = function(Vue) {
-  Vue.component(WsInput.name, WsInput);
+WrInput.install = function(Vue) {
+  Vue.component(WrInput.name, WrInput);
 };
 
-export default WsInput;
+export default WrInput;

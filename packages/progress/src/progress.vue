@@ -1,10 +1,9 @@
 <template>
-  <div class="wr-flex-ac wr-margin-10">
+  <div class="wr-progress">
     <div class="wr-progress-container wr-flex-1 wr-flex-ac">
       <div
         :class="[
-          'wr-progress',
-          type ? `wr-progress-${type}` : '',
+          'wr-progress-loaded',
           status ? `wr-progress-status-${status}` : '',
           stripeType ? `wr-progress-load-${stripeType}` : '',
         ]"
@@ -118,88 +117,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.wr-progress-container {
-  width: 100%;
-  background-color: #0002;
-}
-.wr-progress {
-  position: relative;
-  height: 10px;
-  background-color: #1989fa;
-  transition: 500ms;
-  overflow: hidden;
-}
-.wr-progress::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 100%;
-}
-
-.wr-progress-status-exception {
-  background-color: #ee0a24;
-}
-.wr-progress-status-warning {
-  background-color: #ff5722;
-}
-.wr-progress-status-success {
-  background-color: #07c160;
-}
-
-.wr-progress-load-line::before {
-  left: -100%;
-  width: 100%;
-  background: linear-gradient(90deg, transparent, #fff6);
-  animation: wr-progress-load-animate 2s ease-in-out infinite;
-}
-
-.wr-progress-load-zebra {
-  width: 100%;
-  background-image: linear-gradient(
-    -45deg,
-    #fff6 25%,
-    transparent 25%,
-    transparent 50%,
-    #fff6 50%,
-    #fff6 75%,
-    transparent 75%,
-    transparent
-  );
-  background-size: 12px 12px;
-  animation: wr-progress-load-animate-zebra 1s linear infinite;
-}
-.wr-flex-ac {
-  display: flex;
-  align-items: center;
-}
-
-.wr-flex-1 {
-  flex: 1;
-}
-.wr-progress-value {
-  width: 60px;
-  padding: 0 2px;
-}
-.wr-margin-10 {
-  margin: 10px 0;
-}
-
-@keyframes wr-progress-load-animate {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0;
-  }
-}
-@keyframes wr-progress-load-animate-zebra {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 12px 0;
-  }
-}
-</style>

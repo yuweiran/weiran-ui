@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-:::demo 使用`type`、`plain`、和`circle`属性来定义 Button 的样式。
+:::demo 
 
 ```html
   <template>
@@ -13,14 +13,6 @@
     <wr-button type="warning">警告按钮</wr-button>
     <wr-button type="danger">危险按钮</wr-button>
     <wr-button type="primary">主要按钮</wr-button>
-    <wr-button type="danger" circle icon='wr-icon-delete'></wr-button>
-    <wr-button type="success" circle icon='wr-icon-check'></wr-button>
-    <wr-button type="warning" circle icon='wr-icon-remove'></wr-button>
-    <wr-button type="danger"  icon='wr-icon-remove'>移除</wr-button>
-    <wr-button size="medium">中型按钮</wr-button>
-    <wr-button size="mini">小型按钮</wr-button>
-    <wr-button plain>朴素按钮</wr-button>
-    <wr-button plain type='danger'>危险按钮</wr-button>
   </template>
   <script>
   export default {
@@ -36,6 +28,45 @@
     },
   }
   </script>
+```
+:::
+
+### 圆形按钮
+:::demo 
+```html
+  <template>
+    <wr-button  circle icon='wr-icon-more'></wr-button>
+    <wr-button type="danger" circle icon='wr-icon-delete'></wr-button>
+    <wr-button type="success" circle icon='wr-icon-check'></wr-button>
+    <wr-button type="warning" circle icon='wr-icon-remove'></wr-button>
+  </template>
+```
+:::
+
+### 朴素按钮
+:::demo 
+
+```html
+  <template>
+    <wr-button plain>朴素按钮</wr-button>
+    <wr-button plain type="success">成功按钮</wr-button>
+    <wr-button plain type="warning">警告按钮</wr-button>
+    <wr-button plain type="danger">危险按钮</wr-button>
+    <wr-button plain type="primary">主要按钮</wr-button>
+  </template>
+```
+:::
+
+### 按钮尺寸
+:::demo 
+
+```html
+  <template>
+    <wr-button size="medium">medium按钮</wr-button>
+    <wr-button size="small">small(默认)按钮</wr-button>
+    <wr-button size="mini">mini按钮</wr-button>
+  </template>
+```
 :::
 
 ### Attributes

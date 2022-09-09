@@ -12,7 +12,7 @@
     "update:styles-file": "node ./build/bin/build-generate-css.js",
     "update:icons": "node ./build/bin/build-icon-json.js",
     "lint": "vue-cli-service lint",
-    "update-all": "npm run update:install & npm run update:routes & npm run update:components &  npm run update:src/index"
+    "update-all": "npm run update:install & npm run update:routes & npm run update:components &  npm run update:src/index & npm run update:icons & npm run update:styles-file"
   },
   "dependencies": {
     "animate.css": "^4.1.1",

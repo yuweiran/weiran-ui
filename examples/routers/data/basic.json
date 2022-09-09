@@ -12,10 +12,6 @@
     {
       "path": "/icon",
       "name": "图标"
-    },
-    {
-      "path": "/input",
-      "name": "输入框"
     }
   ]
 }

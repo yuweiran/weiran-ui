@@ -1,4 +1,19 @@
-## icon
+## Icon
+
+### 基本用法
+
+:::demo
+```html
+<template>
+  <div style="font-size:20px">
+    <i class="wr-icon-edit"></i>
+    <i class="wr-icon-search"></i>
+    <i class="wr-icon-delete"></i>
+  </div>
+</template>
+
+```
+:::
 
 <div class="wr-icon-container">
   <div class="wr-icon-item--show" v-for="icon in $icons" :key="icon">

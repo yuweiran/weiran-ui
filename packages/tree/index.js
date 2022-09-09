@@ -1,9 +1,9 @@
 
-import WsTree from './src/tree';
+import WrTree from './src/tree';
 
 /* istanbul ignore next */
-WsTree.install = function(Vue) {
-  Vue.component(WsTree.name, WsTree);
+WrTree.install = function(Vue) {
+  Vue.component(WrTree.name, WrTree);
 };
 
-export default WsTree;
+export default WrTree;

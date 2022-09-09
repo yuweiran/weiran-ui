@@ -22,10 +22,10 @@ Grid容器布局
       color: white;
     }
     .color-aa{
-      background-color:#aaaaaa
+      background-color:#54ff91
     }
     .color-cc{
-      background-color:#cccccc
+      background-color:#4d9dff
     }
   </style>
 :::
@@ -51,10 +51,10 @@ Grid容器布局
       color: white;
     }
     .color-aa{
-      background-color:#aaaaaa
+      background-color:#54ff91
     }
     .color-cc{
-      background-color:#cccccc
+      background-color:#4d9dff
     }
   </style>
 :::
@@ -87,10 +87,10 @@ Grid容器布局
       color: white;
     }
     .color-aa{
-      background-color:#aaaaaa
+      background-color:#54ff91
     }
     .color-cc{
-      background-color:#cccccc
+      background-color:#4d9dff
     }
   </style>
 :::
@@ -159,13 +159,13 @@ Grid容器布局
       color: white;
     }
     .color-aa{
-      background-color:#aaaaaa
+      background-color:#54ff91
     }
     .color-bb{
-      background-color:#bbbbbb
+      background-color:#953dff
     }
     .color-cc{
-      background-color:#cccccc
+      background-color:#4d9dff
     }
   </style>
 :::

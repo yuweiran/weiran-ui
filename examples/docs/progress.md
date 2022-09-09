@@ -1,4 +1,4 @@
-## progress
+## Progress
 ### 基本使用
 :::demo
 ```html
@@ -91,4 +91,4 @@
 | stripe-type     | 条纹类型   | string    |    line / zebra  |     —    |
 | hidden-percent     | 是否隐藏进度百分比值   |bolean | — | false   |
 | total     | 总值   | string/number      | — | false   |
-| custom-color     | 自定义颜色   | array  | [{color:'',percent:''}] |  —  |
+| custom-color     | 自定义颜色   | array/string  | [{color:'',percent:''}]/颜色值 |  —  |

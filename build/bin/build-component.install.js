@@ -23,21 +23,26 @@ const COMPONENTS_DEFINE_PATH  = path.join(__dirname,'../../packages/')
 
 fs.readdir(COMPONENTS_DEFINE_PATH,{encoding:'utf-8'},(err,files)=>{
   files.forEach(item=>{
-    const srcPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/src/`)
-    let srcFiles =  fs.readdirSync(srcPath,{encoding:"utf-8"})
-    const componentPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/index.js`)
-    let  content
-    if(srcFiles.indexOf('main.js')===-1){
-       content = render(INSTALL_TEMPLATE,{
-        upperName:uppercamelcase(`ws-${item}`),
-        componetName:item
-      })
-      
-    }else{
-      content = render(INSTALL_TEMPLATE2,{
-        upperName:uppercamelcase(item),
-      })
+    let excludeComponents=['checkbox-group']
+    //这里面组件手写install文件
+    if(excludeComponents.indexOf(item)===-1){
+      const srcPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/src/`)
+      let srcFiles =  fs.readdirSync(srcPath,{encoding:"utf-8"})
+      const componentPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/index.js`)
+      let  content
+      if(srcFiles.indexOf('main.js')===-1){
+  
+         content = render(INSTALL_TEMPLATE,{
+          upperName:uppercamelcase(`wr-${item}`),
+          componetName:item
+        })
+        
+      }else{
+        content = render(INSTALL_TEMPLATE2,{
+          upperName:uppercamelcase(item),
+        })
+      }
+      fs.writeFile(componentPath,content,{encoding:'utf-8'},()=>{})
     }
-    fs.writeFile(componentPath,content,{encoding:'utf-8'},()=>{})
   })
 })

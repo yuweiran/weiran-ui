@@ -1,5 +1,10 @@
 @import "./common.scss";
 
+$demo-color-blue:#4d9dff;
+$demo-color-red:#ff5454;
+$demo-color-purple:#953dff;
+$demo-color-green:#54ff91;
+
 .wrui-container {
   color:#515a6e;
   padding:0 20px;
@@ -8,7 +13,7 @@
     display: none;
   }
 
-  table{
+  &>table{
     width: 100%;
     margin-top: 20px;
     border: 1px solid #EBEEF5;
@@ -38,22 +43,15 @@
     color: white;
   }
   .color-aa{
-    background-color:#aaaaaa
+    background-color:$demo-color-green;
   }
   .color-bb{
-    background-color:#bbbbbb
+    background-color:$demo-color-purple;
   }
   .color-cc{
-    background-color:#cccccc
+    background-color:$demo-color-blue;
   }
 
-  .wr-button,.wr-input,.wr-textarea{
-    margin: 6px 10px;
-  }
-  
-  .wr-badge .wr-button{
-    margin: 0;
-  }
 
   //拖动
   .wr-drag-demo{

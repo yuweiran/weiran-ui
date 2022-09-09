@@ -3,10 +3,12 @@
     <wr-container type="header-main">
       <template #header><HomeHeader /></template>
       <template #main>
-        <wr-container type="aside-main">
-          <template #aside><HomeAside /></template>
+        <wr-container aside-width="240" type="aside-main">
+          <template #aside
+            ><HomeAside @scrolltop="handleMdContentToTop"
+          /></template>
           <template #main>
-            <HomeMain />
+            <HomeMain id="mdFileShow" />
           </template>
         </wr-container>
       </template>
@@ -23,6 +25,17 @@ export default {
     HomeAside,
     HomeHeader,
     HomeMain,
+  },
+  methods: {
+    handleMdContentToTop() {
+      this.$el
+        .querySelector('#mdFileShow')
+        .scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        })
+    },
   },
 }
 </script>

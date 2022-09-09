@@ -6,7 +6,7 @@
 import videojs from 'video.js'
 
 export default {
-  name: 'wrTest',
+  name: 'wrVideo',
   props: {
     options: {
       type: Object,

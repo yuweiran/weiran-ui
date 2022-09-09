@@ -1,9 +1,9 @@
 
-import WsContainer from './src/container';
+import WrContainer from './src/container';
 
 /* istanbul ignore next */
-WsContainer.install = function(Vue) {
-  Vue.component(WsContainer.name, WsContainer);
+WrContainer.install = function(Vue) {
+  Vue.component(WrContainer.name, WrContainer);
 };
 
-export default WsContainer;
+export default WrContainer;

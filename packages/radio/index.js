@@ -1,9 +1,9 @@
 
-import WsRadio from './src/radio';
+import WrRadio from './src/radio';
 
 /* istanbul ignore next */
-WsRadio.install = function(Vue) {
-  Vue.component(WsRadio.name, WsRadio);
+WrRadio.install = function(Vue) {
+  Vue.component(WrRadio.name, WrRadio);
 };
 
-export default WsRadio;
+export default WrRadio;

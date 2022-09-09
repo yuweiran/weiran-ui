@@ -1,9 +1,9 @@
 
-import WsVideo from './src/video';
+import WrVideo from './src/video';
 
 /* istanbul ignore next */
-WsVideo.install = function(Vue) {
-  Vue.component(WsVideo.name, WsVideo);
+WrVideo.install = function(Vue) {
+  Vue.component(WrVideo.name, WrVideo);
 };
 
-export default WsVideo;
+export default WrVideo;

@@ -1,0 +1,69 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include c(progress){
+  @extend .wr-flex-ac;
+  margin: 10px 0;
+
+  &-container {
+    width: 100%;
+    background-color: #0002;
+  }
+  @include c(progress-loaded){
+    position: relative;
+    height: 10px;
+    background-color: #1989fa;
+    transition: 500ms;
+    overflow: hidden;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+  }
+  @include c(progress-status){
+    &-exception {
+      background-color:$wr-color-danger;
+    }
+    &-warning {
+      background-color:$wr-color-warning;
+    }
+    &-success {
+      background-color:$wr-color-success;
+    }
+  }
+  &-value {
+    width: 60px;
+    padding: 0 2px;
+  }
+  &-load-line::before {
+    left: -100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, #fff6);
+    animation: wr-progress-load-animate 2s ease-in-out infinite;
+  }
+  
+  &-load-zebra {
+    width: 100%;
+    background-image: linear-gradient(
+      -45deg,
+      #fff6 25%,
+      transparent 25%,
+      transparent 50%,
+      #fff6 50%,
+      #fff6 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 12px 12px;
+    animation: wr-progress-load-animate-zebra 1s linear infinite;
+  }
+  
+  
+  
+}
+
+
+

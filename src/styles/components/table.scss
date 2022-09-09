@@ -1,0 +1,22 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+@include c(table){
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ebeef5;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  background: #fff;
+
+  & td{
+    padding:10px;
+    border: 1px solid #ebeef5;
+    font-size: 14px;
+  }
+  & th {
+    padding: 10px;
+    border: 1px solid #ebeef5;
+    font-size: 14px;
+  }
+}

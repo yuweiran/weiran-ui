@@ -1,9 +1,9 @@
 
-import WsButton from './src/button';
+import WrButton from './src/button';
 
 /* istanbul ignore next */
-WsButton.install = function(Vue) {
-  Vue.component(WsButton.name, WsButton);
+WrButton.install = function(Vue) {
+  Vue.component(WrButton.name, WrButton);
 };
 
-export default WsButton;
+export default WrButton;

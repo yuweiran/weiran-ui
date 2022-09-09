@@ -1,9 +1,9 @@
 
-import WsTable from './src/table';
+import WrTable from './src/table';
 
 /* istanbul ignore next */
-WsTable.install = function(Vue) {
-  Vue.component(WsTable.name, WsTable);
+WrTable.install = function(Vue) {
+  Vue.component(WrTable.name, WrTable);
 };
 
-export default WsTable;
+export default WrTable;

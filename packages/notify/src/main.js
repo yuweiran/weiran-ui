@@ -9,8 +9,21 @@ let NoticeList = {
   'bottom-left':[],
   'bottom-right':[],
 }
+
+function refreshElPosition(position){
+  let  positionField = position.indexOf('top')!==-1?'top':'bottom'
+  let initValue = 0
+  NoticeList[position].forEach((item,index)=>{
+    initValue+=index===0?0:NoticeList[position][index-1].$el.offsetHeight+10
+    item.$el.style[positionField] =initValue +20+'px'
+  })
+}
+
 const NoticeFunc =  function(options){
-  let positionField =''
+  if(!options){
+    options={}
+  }
+  options.visible=true
   let id='notify'+ind++
   //定位值传入判断，过滤
   let valueValid =
@@ -20,6 +33,7 @@ const NoticeFunc =  function(options){
     if (!valueValid)  {
       options.position = 'top-right'
     }
+  
 //手动删除调用方法
   options.onClose=function() {
     NoticeFunc.close(options.position , id);
@@ -34,14 +48,8 @@ const NoticeFunc =  function(options){
   instance.$mount();
   NoticeList[options.position].push(instance)
   document.body.appendChild(instance.$el)
-  positionField = options.position.indexOf('top')!==-1?'top':'bottom'
-  
-  NoticeList[options.position].forEach((item,index)=>{
-    item.$el.style[positionField] = (item.$el.offsetHeight+10)*index+20+'px'
-  })
-  // let timer = setTimeout(() => {
-  //   NoticeFunc.close(instance.noticePosition,instance.noticeId)
-  // }, 4000);
+  refreshElPosition(options.position)
+
 }
 
 //关闭
@@ -49,11 +57,7 @@ NoticeFunc.close = function(position,ind){
   const targetIndex =  NoticeList[position].findIndex(item=>{
    return item.noticeId === ind
   })
-  document.body.removeChild(NoticeList[position][targetIndex].$el)
   NoticeList[position].splice(targetIndex,1)
-  let positionField = position.indexOf('top')!==-1?'top':'bottom'
-  NoticeList[position].forEach((item,index)=>{
-    item.$el.style[positionField] = (item.$el.offsetHeight+10)*index+20+'px'
-  })
+  refreshElPosition(position)
 }
 export default NoticeFunc

@@ -40,7 +40,6 @@ export default {
 };
 `;
 
-delete Components.font;
 
 var ComponentNames = Object.keys(Components);
 

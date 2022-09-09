@@ -17,11 +17,6 @@
       path:"icon",
       text:"Icon    图标"
     }
-    ,
-{
-      path:"input",
-      text:"Input    输入框"
-    }
     
       ],
       text:"basic"
@@ -64,7 +59,27 @@
       children:[
         {
       path:"radio",
-      text:"Radio    单选"
+      text:"Radio    单选框"
+    }
+    ,
+{
+      path:"checkbox",
+      text:"Checkbox    复选框"
+    }
+    ,
+{
+      path:"select",
+      text:"Select    选择器"
+    }
+    ,
+{
+      path:"dropdown",
+      text:"Dropdown    下拉列表"
+    }
+    ,
+{
+      path:"input",
+      text:"Input    输入框"
     }
     
       ],

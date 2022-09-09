@@ -1,0 +1,44 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include c(badge){
+  position: relative;
+  display: inline-block;
+
+  & + &{
+    margin-left: 16px;
+  }
+
+  &-sup{
+    @extend .wr-flex-ac;
+    color: #fff;
+    line-height: inherit;
+    position: absolute;
+    height: 16px;
+    font-size: 12px;
+    padding: 0 3px;
+    top: 0;
+    right: 0;
+    border-radius: 3px;
+    transform: translate(50%, -50%);
+  }
+
+  &-is-dot{
+    height: 8px;
+    width: 8px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .wr-badge-default {
+    background-color: $wr-color-primary;
+  }
+  .wr-badge-danger {
+    background-color: $wr-color-danger;
+  }
+  .wr-badge-success {
+    background-color: $wr-color-success;
+  }
+  .wr-badge-warning {
+    background-color: $wr-color-warning;
+  } 
+}

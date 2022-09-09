@@ -5,22 +5,62 @@
 :::demo
 ```html
 <template>
-  <wr-table :columns='columns' :data="tableData"></wr-table>
+  <wr-table ref='wrTable' :columns='columns' :data="tableData"></wr-table>
+  <h4>居中</h4>
+  <wr-button @click="align='left'">左对齐</wr-button>
+  <wr-button @click="align='center'">居中对齐</wr-button>
+  <wr-button @click="align='right'">右对齐</wr-button>
+  <wr-table ref='wrTable' :align='align' :columns='columns' :data="tableData"></wr-table>
 </template>
 <script>
   export default {
     data(){
       return {
         columns: [
-          { field: 't1', 
-          title: 'title1',
-          slots:{
-            default: ({row}) => {
-              return [
-                <wr-button type='danger' icon="wr-icon-delete">删除</wr-button>
-              ]
-            },
-          }
+          {type:'seq',width:'50px'},
+          { field: 't1', title: 'title1' },
+          { field: 't2', title: 'title2' },
+          { field: 't3', title: 'title3' },
+        ],
+        tableData: [
+          { t1: 90, t2: 67, t3: 79 },
+          { t1: 97, t2: 98, t3: 52 },
+          { t1: 33, t2: 37, t3: 80 },
+        ],
+        align:'left'
+      }
+    },
+    methods:{
+      logSelectedRow(){
+        const row = this.$refs.wrTable.getSelectedRadioRow()
+        console.log(row)
+      }
+    }
+  }
+</script>
+```
+:::
+
+
+
+### 自定义插槽
+
+:::demo
+```html
+<template>
+  <wr-table ref='wrTable' :columns='columns' :data="tableData"></wr-table>
+</template>
+<script>
+  export default {
+    data(){
+      return {
+        columns: [
+          { type:'seq',width:'60px'},
+          { 
+            field: 't1', 
+            width:'120px',
+            title: 'title1',
+           
           },
           { 
             field: 't2',
@@ -33,13 +73,95 @@
               },
             } 
           },
-          { field: 't3', title: 'title3' },
+          { field: 't3', 
+            title: 'title3',
+            slots:{
+              default: ({row}) => {
+                return [
+                  <span>{row.t3>60?'合格':'不合格'}</span>
+                ]
+              },
+            }  
+          },
+          { 
+            title: '操作',
+            slots:{
+              default: ({row}) => {
+                return [
+                  <wr-button vOn:click={()=>this.handleDeleteRow(row)} type='danger' icon="wr-icon-delete">删除</wr-button>
+                ]
+              },
+            }
+          }
         ],
         tableData: [
           { t1: 90, t2: 67, t3: 79 },
           { t1: 97, t2: 98, t3: 52 },
           { t1: 33, t2: 37, t3: 80 },
         ],
+      }
+    },
+    methods:{
+      logSelectedRow(){
+        const row = this.$refs.wrTable.getSelectedRadioRow()
+        console.log(row)
+      },
+      handleDeleteRow(row){
+        console.log('确定删除该行？',row)
+      }
+    }
+  }
+</script>
+```
+:::
+
+
+
+### 方法调用
+
+:::demo
+```html
+<template>
+  <wr-table ref='wrTable' :columns='columns' align="center" :data="tableData"></wr-table>
+  <div style="margin-top:10px"></div>
+  <wr-button @click="logRadioSelectedRow" size="mini">打印单选框选中行数据</wr-button>
+  <wr-button @click="logCheckboxSelectedRows" size="mini">打印复选框选中行数据</wr-button>
+</template>
+<script>
+  export default {
+    data(){
+      return {
+        columns: [
+          { type:'seq',width:'60px'},
+          { type:'radio',width:'60px'},
+          { type:'checkbox',width:'60px'},
+          { 
+            field: 't1', 
+            width:'120px',
+            title: 'title1',
+          },
+          { 
+            field: 't2',
+            title: 'title2', 
+          },
+          { field: 't3', title: 'title3' },
+
+        ],
+        tableData: [
+          { t1: 90, t2: 67, t3: 79 },
+          { t1: 97, t2: 98, t3: 52 },
+          { t1: 33, t2: 37, t3: 80 },
+        ],
+      }
+    },
+    methods:{
+      logRadioSelectedRow(){
+        const row = this.$refs.wrTable.getSelectedRadioRow()
+        console.log(row)
+      },
+      logCheckboxSelectedRows(){
+        const rows = this.$refs.wrTable.getSelectedCheckboxRows()
+        console.log(rows)
       }
     }
   }

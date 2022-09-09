@@ -1,9 +1,9 @@
 
-import WsBadge from './src/badge';
+import WrBadge from './src/badge';
 
 /* istanbul ignore next */
-WsBadge.install = function(Vue) {
-  Vue.component(WsBadge.name, WsBadge);
+WrBadge.install = function(Vue) {
+  Vue.component(WrBadge.name, WrBadge);
 };
 
-export default WsBadge;
+export default WrBadge;

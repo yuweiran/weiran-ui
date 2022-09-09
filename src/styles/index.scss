@@ -2,8 +2,22 @@
 //全部组件样式统一导入
  @import "../icons/iconfont.css";
 
+ @import "./components/badge.scss";
+
  @import "./components/button.scss";
+
+ @import "./components/checkbox.scss";
 
  @import "./components/container.scss";
 
  @import "./components/input.scss";
+
+ @import "./components/notify.scss";
+
+ @import "./components/progress.scss";
+
+ @import "./components/radio.scss";
+
+ @import "./components/table.scss";
+
+ @import "./components/tree.scss";

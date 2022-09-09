@@ -29,11 +29,6 @@
       path:"icon",
       component:()=>import('@/docs/icon.md')
     }
-    ,
-{
-      path:"input",
-      component:()=>import('@/docs/input.md')
-    }
     
       ],
     }  
@@ -79,6 +74,26 @@
         {
       path:"radio",
       component:()=>import('@/docs/radio.md')
+    }
+    ,
+{
+      path:"checkbox",
+      component:()=>import('@/docs/checkbox.md')
+    }
+    ,
+{
+      path:"select",
+      component:()=>import('@/docs/select.md')
+    }
+    ,
+{
+      path:"dropdown",
+      component:()=>import('@/docs/dropdown.md')
+    }
+    ,
+{
+      path:"input",
+      component:()=>import('@/docs/input.md')
     }
     
       ],

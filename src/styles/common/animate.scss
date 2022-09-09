@@ -1,0 +1,17 @@
+
+@keyframes wr-progress-load-animate {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes wr-progress-load-animate-zebra {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}

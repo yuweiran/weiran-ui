@@ -8,7 +8,7 @@
         :class="['wr-input-inner']"
         :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
         :readonly="readonly"
-        :autocomplete="autoComplete || autocomplete"
+        :autocomplete="autocomplete"
         ref="input"
         @input="handleInput"
         @focus="handleFocus"
@@ -21,12 +21,15 @@
       :tabindex="tabindex"
       class="wr-textarea-inner"
       @input="handleInput"
-      :style="{ height: `${parseInt(height)}px` }"
+      :style="{
+        height: `${parseInt(height)}px`,
+        resize: resize,
+      }"
       ref="textarea"
       v-bind="$attrs"
       :disabled="inputDisabled"
       :readonly="readonly"
-      :autocomplete="autoComplete || autocomplete"
+      :autocomplete="autocomplete"
       @focus="handleFocus"
       @blur="handleBlur"
       @change="handleChange"
@@ -63,25 +66,11 @@ export default {
       type: String,
       default: 'text',
     },
-    autosize: {
-      type: [Boolean, Object],
-      default: false,
-    },
     autocomplete: {
       type: String,
       default: 'off',
     },
-    /** @Deprecated in next major version */
-    autoComplete: {
-      type: String,
-      validator() {
-        process.env.NODE_ENV !== 'production' &&
-          console.warn(
-            "[Element Warn][Input]'auto-complete' property will be deprecated in next major version. please use 'autocomplete' instead."
-          )
-        return true
-      },
-    },
+
     showPassword: {
       type: Boolean,
       default: false,
@@ -197,17 +186,3 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
-.wr-input-inner {
-  width: 100%;
-  outline: none;
-  padding: 6px 4px;
-}
-
-.wr-textarea-inner {
-  outline: none;
-  resize: none;
-  width: 100%;
-  padding: 6px 4px;
-}
-</style>

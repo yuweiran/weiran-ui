@@ -6,48 +6,47 @@ export default {
     treeNode,
   },
   data() {
-    return {
-      data: [
-        {
-          id: 'root_1',
-          label: 'root-1',
-          children: [
-            {
-              id: 'child-1',
-              label: 'child-1',
-              children: [{ id: 'child-2', label: 'child-2' }],
-            },
-          ],
-        },
-        {
-          id: 'root_2',
-          label: 'root-2',
-          children: [
-            {
-              id: 'child-3',
-              label: 'child-3',
-              children: [{ id: 'child-5', label: 'child-5' }],
-            },
-          ],
-        },
-      ],
-    }
+    return {}
   },
   render() {
     let initProperty = {
       isExpanded: false,
     }
-
+    let props = this.defaultProps
     return (
-      <div>
+      <div class="wr-tree-node-group">
         {this.data.map((root) => {
           Object.assign(root, initProperty)
-          return <tree-node data={root}></tree-node>
+          return <tree-node defaultProps={props} data={root}></tree-node>
         })}
       </div>
     )
   },
+  props: {
+    data: Array,
+    props: {
+      type: Object,
+      default() {
+        return {
+          id: 'id',
+          label: 'label',
+          children: 'children',
+          icon: 'wr-icon-fill-right',
+        }
+      },
+    },
+  },
+  computed: {
+    defaultProps() {
+      let props = this.props
+      let init = {
+        id: 'id',
+        label: 'label',
+        children: 'children',
+      }
+      Object.assign(init, props)
+      return init
+    },
+  },
 }
 </script>
-
-<style lang="scss" scoped></style>

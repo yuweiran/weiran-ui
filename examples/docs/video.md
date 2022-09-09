@@ -4,7 +4,7 @@
 :::demo
   ```html
     <template>
-      <wr-test  :options="videoOptions"></wr-test>
+      <wr-video  :options="videoOptions"></wr-video>
     </template>
     <script>
     export default {

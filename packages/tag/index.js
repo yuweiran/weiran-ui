@@ -1,9 +1,9 @@
 
-import WsTag from './src/tag';
+import WrTag from './src/tag';
 
 /* istanbul ignore next */
-WsTag.install = function(Vue) {
-  Vue.component(WsTag.name, WsTag);
+WrTag.install = function(Vue) {
+  Vue.component(WrTag.name, WrTag);
 };
 
-export default WsTag;
+export default WrTag;

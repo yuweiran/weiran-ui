@@ -5,14 +5,14 @@
       v-for="(group, index) in menu"
       :key="index"
     >
-      <div class="menu-group-name" @click="groupClick(group)">
+      <div class="menu-group-name" @click="nodeClick(group.path)">
         {{ group.text }}
       </div>
       <div
         class="menu-child"
         v-for="(child, childI) in group.children"
         :key="childI"
-        @click="childClick(group.path + '/' + child.path)"
+        @click="nodeClick(group.path + '/' + child.path)"
       >
         {{ child.text }}
       </div>
@@ -29,11 +29,11 @@ export default {
     }
   },
   methods: {
-    groupClick(group) {
-      this.$router.replace(group.path)
-    },
-    childClick(path) {
-      this.$router.replace(path)
+    nodeClick(path) {
+      if (this.$route.fullPath !== path) {
+        this.$router.replace(path)
+        this.$emit('scrolltop')
+      }
     },
   },
 }
@@ -49,7 +49,7 @@ export default {
       padding: 6px 0px;
       font-weight: bold;
       opacity: 0.5;
-      font-size: 14px;
+      font-size: 13px;
     }
     .menu-child {
       padding: 3px 16px;

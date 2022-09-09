@@ -1,9 +1,9 @@
 
-import WsDrag from './src/drag';
+import WrDrag from './src/drag';
 
 /* istanbul ignore next */
-WsDrag.install = function(Vue) {
-  Vue.component(WsDrag.name, WsDrag);
+WrDrag.install = function(Vue) {
+  Vue.component(WrDrag.name, WrDrag);
 };
 
-export default WsDrag;
+export default WrDrag;
