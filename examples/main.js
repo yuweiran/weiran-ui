@@ -10,18 +10,15 @@ import icons from  "./icons.json"
 
 //自己这个ui库的所有css
 import "../src/styles/index.scss"
-//animate.css动画//放组件库？？下下来吗需要，至少，我的ui库css里面需要引入？
-import animate from "animate.css"
+
 //代码高亮的css
 import 'highlight.js/styles/rainbow.css'; 
-//video.js 要求的css,放组件库？下下来吗需要
-import'video.js/dist/video-js.min.css';
+
 
 import App from './App.vue'
 
 Vue.use(VueRouter);
 Vue.use(Element);
-Vue.use(animate)
 Vue.component('wrui-demo-block',demoBlock)
 
 Vue.config.productionTip = false
