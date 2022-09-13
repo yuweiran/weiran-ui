@@ -2,16 +2,17 @@
 @import "../variables.scss";
 @include c(notify){
   position: absolute;
-  padding: 10px;
-  width: 260px;
+  padding: 18px;
+  width: 352px;
   background-color: #fff;
   box-shadow: 0 0 1px #0007;
   transition: top 500ms, bottom 500ms;
+  border-radius: 3px;
 
   &-header {
     font-size: 14px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     @extend .wr-flex-ac-jb;
   }
   &-top-right,

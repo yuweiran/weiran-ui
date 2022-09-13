@@ -43,3 +43,11 @@
 </script>
 ```
 :::
+### 属性
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| value     | 值   | string/number  |    —      |    —     |
+| type     | 类型   | string    |   primary / success / warning / danger  |     —    |
+| is-dot     | 是否为点   | boolean    | — | false   |
+| limit  | 当value为number类型时，最大值限制    | number   | —   |  —   |
+| showBadge  | 控制badge隐藏显示 | boolean   |  true  |  —  |

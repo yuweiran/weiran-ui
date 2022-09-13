@@ -1,6 +1,6 @@
 ## Video
 
-## 测试
+### 基本使用
 :::demo
   ```html
     <template>
@@ -29,16 +29,7 @@
 配置项见
 [videojs](https://videojs.com/guides/options/)
 
-
-标签动态效果
-关系网
-树
-弹框
-多级菜单，数据处理方法
-echart二次封装
-提示
-拖拽
-常规：input（v-model实现），checkbox，radio，下拉列表，日期，进度条
-上传显示上传进度的upload
-
-scss文件支持，变量定义和使用
+### 属性
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| props   | 配置信息  | object    |   ——   | {}|      

@@ -88,14 +88,25 @@ const createRoutes = async(pathList)=>{
       {path: "/", redirect: "/wrui"},
       {
         path:"/wrui",
-        redirect:"/wrui/guide",
+        redirect: '/wrui/guide',
+        component:()=>import("@/pages/wrui-home/wrui-home"),
+        children:[
+          {
+            path:"/wrui/guide",
+            component:()=>import("@/docs/guide.md")
+          }
+          ,
+          {{routeList}}
+        ]
       },
       {
-        path:"/wrui/guide",
-        component:()=>import("@/docs/guide.md")
+        path: '*', // 重定向页面地址
+        redirect: '/404'
+      },
+      {
+        path: '/404', 
+        component:()=>import("@/pages/wrui-404/404"),
       }
-      ,
-      {{routeList}}
     ]
   `
 

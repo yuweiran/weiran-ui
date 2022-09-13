@@ -1,4 +1,4 @@
-## table
+## Table
 
 ### 基本用法
 
@@ -168,3 +168,15 @@
 </script>
 ```
 :::
+### 属性
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| algin     | 设置文字对齐  | string    |   left/center/right   |    left  |   
+| columns     | 表格列数据  | array    |   —   |    —   |   
+| data    | 表格数据   | array    | — |  —  |
+
+### 方法
+| 方法名称     | 说明    | 
+|---------- |-------- |
+| getSelectedRadioRow     | 获取当前单选框选中的数据  |   
+| getSelectedCheckboxRows     | 获取当前复选框选中的数据  |   

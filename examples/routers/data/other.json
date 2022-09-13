@@ -8,10 +8,6 @@
     {
       "path": "/drag",
       "name": "拖拽"
-    },
-    {
-      "path": "/test",
-      "name": "测试"
     }
   ]
 }

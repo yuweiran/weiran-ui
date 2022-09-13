@@ -2,8 +2,16 @@
   "group": "notice",
   "children": [
     {
+      "path": "/message-box",
+      "name": "消息框"
+    },
+    {
       "path": "/notify",
       "name": "提示"
+    },
+    {
+      "path": "/message",
+      "name": "消息"
     }
   ]
 }

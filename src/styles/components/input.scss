@@ -1,18 +1,18 @@
 @import "../variables.scss";
 @import "../mixin/mixin.scss";
 
-@include c(input){
-  &-inner{
-    width: 100%;
-    outline: none;
-    padding: 6px 4px;
+@include blendTwo(input,textarea){
+  position: relative;
+  @include c(input__count){
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+    font-size: 12px;
   }
 }
-
-@include c(textarea){
-  &-inner{
-    width: 100%;
-    outline: none;
-    padding: 6px 4px;
-  }
+@include blendTwo(input-inner,textarea-inner){
+  width: 100%;
+  outline: none;
+  padding: 8px;
+  border: 1px solid $wr-color-border;
 }

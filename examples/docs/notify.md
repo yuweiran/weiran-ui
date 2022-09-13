@@ -118,3 +118,11 @@
     </script>
   ```
 :::
+### 属性
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| text     |  内容文字  |   string |   ——  |    ——   |   
+| keepShow    |  是否不自动关闭，保持显示在页面 | boolean    | true/false |  false  |
+| appearAnimate     |  出现动画  |   string  |   ——   |   ——   |   
+| leaveAnimate     |  离开动画  |   string  |   ——   |   ——   |   
+| duration     |  弹框保持显示时间  |   number  |   ——   |   4500   |   

@@ -14,10 +14,6 @@
       "name": "选择器"
     },
     {
-      "path": "/dropdown",
-      "name": "下拉列表"
-    },
-    {
       "path": "/input",
       "name": "输入框"
     }

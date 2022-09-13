@@ -5,13 +5,16 @@
     :leave-active-class="`animate__animated ${animateOutClass}`"
     @after-leave="destroyEl"
   >
-    <div v-show="visible" :class="['wr-notify', `wr-notify-${position}`]">
-      <div class="wr-notify-header">
-        <div>{{ title || '提示' }}</div>
-        <div><span @click="close" class="wr-icon-remove"></span></div>
-      </div>
-      <div>
+    <div v-show="visible" :class="['wr-message', type ? `is-${type}` : '']">
+      <div class="wr-message-content">
         {{ text }}
+      </div>
+      <div v-if="showClose">
+        <span
+          @click="close"
+          style="font-size: 16px; font-weight: bold"
+          class="wr-icon-remove"
+        ></span>
       </div>
     </div>
   </transition>
@@ -19,16 +22,15 @@
 
 <script>
 export default {
-  name: 'wrNotify',
+  name: 'wrMessage',
   data() {
     return {
-      keepShow: false,
+      showClose: false,
       visible: false,
       closed: false,
       title: '',
       text: '',
-      type: '',
-      position: 'top-right',
+      type: 'default',
       appearAnimate: null,
       leaveAnimate: null,
       onClose: null,
@@ -40,25 +42,13 @@ export default {
       if (this.leaveAnimate) {
         return 'animate__' + this.leaveAnimate
       }
-      let reflect = {
-        'top-right': 'animate__fadeOutRight',
-        'top-left': 'animate__fadeOutLeft',
-        'bottom-left': 'animate__fadeOutLeft',
-        'bottom-right': 'animate__fadeOutRight',
-      }
-      return reflect[this.position]
+      return 'animate__fadeOut'
     },
     animateInClass() {
       if (this.appearAnimate) {
         return 'animate__' + this.appearAnimate
       }
-      let reflect = {
-        'top-right': 'animate__fadeInRight',
-        'top-left': 'animate__fadeInLeft',
-        'bottom-left': 'animate__fadeInLeft',
-        'bottom-right': 'animate__fadeInRight',
-      }
-      return reflect[this.position]
+      return 'animate__fadeIn'
     },
   },
   watch: {
@@ -81,13 +71,11 @@ export default {
     },
   },
   mounted() {
-    if (!this.keepShow) {
-      this.timer = setTimeout(() => {
-        if (!this.closed) {
-          this.close()
-        }
-      }, this.duration)
-    }
+    this.timer = setTimeout(() => {
+      if (!this.closed) {
+        this.close()
+      }
+    }, this.duration)
     document.addEventListener('keydown', this.keydown)
   },
 }

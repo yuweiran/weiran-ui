@@ -89,6 +89,7 @@ export default {
   .highlight {
     pre {
       margin: 0;
+      padding: 20px;
     }
     .hljs {
       overflow: auto;

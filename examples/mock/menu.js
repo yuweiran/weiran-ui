@@ -26,11 +26,6 @@
       path:"/wrui/data",
       children:[
         {
-      path:"tag",
-      text:"Tag    标识"
-    }
-    ,
-{
       path:"tree",
       text:"Tree    树"
     }
@@ -73,11 +68,6 @@
     }
     ,
 {
-      path:"dropdown",
-      text:"Dropdown    下拉列表"
-    }
-    ,
-{
       path:"input",
       text:"Input    输入框"
     }
@@ -90,8 +80,18 @@
       path:"/wrui/notice",
       children:[
         {
+      path:"message-box",
+      text:"MessageBox    消息框"
+    }
+    ,
+{
       path:"notify",
       text:"Notify    提示"
+    }
+    ,
+{
+      path:"message",
+      text:"Message    消息"
     }
     
       ],
@@ -109,11 +109,6 @@
 {
       path:"drag",
       text:"Drag    拖拽"
-    }
-    ,
-{
-      path:"test",
-      text:"Test    测试"
     }
     
       ],

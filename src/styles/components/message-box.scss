@@ -1,0 +1,65 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include blendThree(message-alert,message-confirm,message-prompt){
+  margin: auto;
+  width: 560px;
+  min-height: 160px;
+  background-color: $wr-color-white;
+  border-radius: 3px;
+  box-shadow: 0 0 4px #0007;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+@include blendThree(message-alert-header,message-confirm-header,message-prompt-header){
+  font-size: 14px;
+  font-weight: bold;
+  padding-bottom: 12px;
+  @extend .wr-flex-ac-jb;
+}
+
+@include blendThree(message-alert-main,message-confirm-main,message-prompt-main){
+  flex: 1;
+  word-break: break-all;
+}
+@include blendThree(message-alert-footer,message-confirm-footer,message-prompt-footer){
+  text-align: right;
+  @include blendThree(message-alert-footer-confirm,message-confirm-footer-confirm,message-prompt-footer-confirm){
+    background-color: $wr-color-primary;
+    color: $wr-color-white;
+    &:hover{
+      background-color: #3095fb;
+    }
+    &:focus{
+      background-color: #1875ff;
+    }
+  }
+  button{
+    font-size: 12px;
+    height: 26px;
+    padding: 0px 12px;
+    border: none;
+
+    border-radius: 2px;
+    box-shadow:  0 0 2px #bbb;
+    cursor: pointer;
+  }
+  button+button{
+    margin-left: 10px;
+  }
+  @include c(message-confirm-footer-cancel){
+    color: $wr-color-black;
+  }
+}
+
+@include c(mask){
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0007;
+  display: flex;
+}

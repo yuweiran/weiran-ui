@@ -8,12 +8,13 @@ import Container from '../packages/container/index.js';
 import Drag from '../packages/drag/index.js';
 import Dropdown from '../packages/dropdown/index.js';
 import Input from '../packages/input/index.js';
+import Message from '../packages/message/index.js';
+import MessageBox from '../packages/message-box/index.js';
 import Notify from '../packages/notify/index.js';
 import Progress from '../packages/progress/index.js';
 import Radio from '../packages/radio/index.js';
 import Select from '../packages/select/index.js';
 import Table from '../packages/table/index.js';
-import Tag from '../packages/tag/index.js';
 import Test from '../packages/test/index.js';
 import Tree from '../packages/tree/index.js';
 import Video from '../packages/video/index.js';
@@ -30,7 +31,7 @@ const components = [
   Radio,
   Select,
   Table,
-  Tag,
+  Test,
   Tree,
   Video,
 ];
@@ -39,9 +40,11 @@ const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
-  
-  Vue.prototype.$test = Test;
   Vue.prototype.$notify = Notify;
+  Vue.prototype.$confirm = MessageBox.confirm;
+  Vue.prototype.$prompt = MessageBox.prompt;
+  Vue.prototype.$alert = MessageBox.alert;
+  Vue.prototype.$message = Message;
 };
 
 
@@ -60,12 +63,13 @@ export default {
   Drag,
   Dropdown,
   Input,
+  Message,
+  MessageBox,
   Notify,
   Progress,
   Radio,
   Select,
   Table,
-  Tag,
   Test,
   Tree,
   Video

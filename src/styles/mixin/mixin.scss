@@ -1,5 +1,6 @@
 @import "./config.scss";
 
+//.wr-
 @mixin c($className){
   $B: $namespace+'-'+$className !global;
 
@@ -8,6 +9,25 @@
   }
 }
 
+@mixin blendTwo($className1,$className2){
+  $B: $namespace+'-'+$className1;
+  $C: $namespace+'-'+$className2;
+  .#{$B},.#{$C} {
+    @content;
+  }
+}
+@mixin blendThree($className1,$className2,$className3){
+  $B: $namespace+'-'+$className1;
+  $C: $namespace+'-'+$className2;
+  $D: $namespace+'-'+$className3;
+  .#{$B},.#{$C},.#{$D} {
+    @content;
+  }
+}
+
+
+
+//.is-$state
 @mixin when($state) {
   @at-root {
     &.#{$state-prefix + $state} {

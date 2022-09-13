@@ -2,10 +2,6 @@
   "group": "data",
   "children": [
     {
-      "path": "/tag",
-      "name": "标识"
-    },
-    {
       "path": "/tree",
       "name": "树"
     },

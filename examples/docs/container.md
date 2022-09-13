@@ -1,5 +1,4 @@
 ## Container
-Grid容器布局
 
 
 ### 上下布局
@@ -170,7 +169,7 @@ Grid容器布局
   </style>
 :::
 
-### Attributes
+### 属性
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | type     | 类型   | string    |   header-main  /  header-main-footer  /  aisde-main  /  main-aside |     —    |

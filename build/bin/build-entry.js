@@ -23,9 +23,11 @@ const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
-  
-  Vue.prototype.$test = Test;
   Vue.prototype.$notify = Notify;
+  Vue.prototype.$confirm = MessageBox.confirm;
+  Vue.prototype.$prompt = MessageBox.prompt;
+  Vue.prototype.$alert = MessageBox.alert;
+  Vue.prototype.$message = Message;
 };
 
 
@@ -55,7 +57,7 @@ ComponentNames.forEach(name => {
     package: name
   }));
 
-  if (['Test','Loading', 'MessageBox', 'Notify', 'Message', 'InfiniteScroll'].indexOf(componentName) === -1) {
+  if (['Message','Loading', 'MessageBox', 'Notify', 'InfiniteScroll'].indexOf(componentName) === -1) {
     installTemplate.push(render(INSTALL_COMPONENT_TEMPLATE, {
       name: componentName,
       component: name

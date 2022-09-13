@@ -1,0 +1,39 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+@include c(message){
+  font-size: 14px;
+  position: absolute;
+  margin: 0 auto;
+  left: 50%;
+  transform:translateX(-50%);
+  padding:8px 18px;
+  width: 352px;
+  background-color: #fff;
+  box-shadow: 0 0 1px #0007;
+  transition: top 500ms, bottom 500ms;
+  border-radius: 3px;
+  @extend .wr-flex-ac-jb;
+
+
+  &-content{
+    word-break: break-all;
+    margin-right: 4px;
+  }
+
+  &.is-warning{
+    background-color: rgb(255, 245, 237);
+    color: $wr-color-warning;
+  }
+  &.is-success{
+    background-color: rgb(231, 255, 237);
+    color: $wr-color-success;
+  }
+  &.is-danger{
+    background-color: rgb(255, 230, 230);
+    color: $wr-color-danger;
+  }
+  &.is-default{
+    background-color: rgb(240, 240, 240);
+    color: $wr-color-black;
+  }
+}

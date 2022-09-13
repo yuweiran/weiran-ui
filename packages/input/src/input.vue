@@ -22,7 +22,7 @@
       class="wr-textarea-inner"
       @input="handleInput"
       :style="{
-        height: `${parseInt(height)}px`,
+        height: `${typeof height === 'number' ? height + px : height}`,
         resize: resize,
       }"
       ref="textarea"
@@ -35,9 +35,7 @@
       @change="handleChange"
     >
     </textarea>
-    <span
-      v-if="isWordLimitVisible && type === 'textarea'"
-      class="el-input__count"
+    <span v-if="isWordLimitVisible" class="wr-input__count"
       >{{ textLength }}/{{ upperLimit }}</span
     >
   </div>
@@ -57,7 +55,6 @@ export default {
 
   props: {
     value: [String, Number],
-    size: String,
     resize: String,
     form: String,
     disabled: Boolean,

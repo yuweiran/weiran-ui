@@ -1,0 +1,28 @@
+@import "../variables.scss";
+@import "../mixin/mixin.scss";
+
+@include c(select){
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  @include c(select-inner){
+    width: 100%;
+    outline: none;
+    padding: 8px;
+    border: 1px solid $wr-color-border;
+  }
+
+  @include c(select-items-container){
+    position: absolute;
+    background-color: $wr-color-white;
+    max-height: 200px;
+    min-height: 40px;
+    overflow: hidden;
+    top: 40px;
+    max-height:200px ;
+    border: 1px solid $wr-color-border;
+    width: 100%;
+    z-index: 9999;
+  }
+}
+
