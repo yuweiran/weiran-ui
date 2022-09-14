@@ -20,9 +20,8 @@ export default {
 :::
 
 ### 复选框组
-
-:::demo 
-```html 
+:::demo
+```html
 <template>
     <wr-checkbox-group v-model="checked">
       <wr-checkbox label="选项1"></wr-checkbox>
@@ -43,7 +42,6 @@ export default {
       console.log(this.checked)
     }
   }
-
 }
 </script>
 ```
