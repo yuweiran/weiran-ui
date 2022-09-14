@@ -1,6 +1,6 @@
 {
   "name": "weiran-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -16,8 +16,13 @@
   "dependencies": {
     "animate.css": "^4.1.1",
     "core-js": "^3.6.5",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
     "highlight.js": "^9.18.5",
     "json-templater": "^1.2.0",
+    "sass": "^1.54.9",
     "sortablejs": "^1.15.0",
     "uppercamelcase": "^3.0.0",
     "video.js": "^7.20.2",
@@ -60,6 +65,12 @@
     "> 1%",
     "last 2 versions",
     "not dead"
+  ],
+  "files": [
+    "package.json",
+    "README.md",
+    "src",
+    "packages"
   ],
   "keywords": [
     "ui",

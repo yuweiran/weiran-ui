@@ -9,7 +9,7 @@ const render = require('json-templater/string')
 
 const PUBLIC_PATH = path.join(__dirname,'../../src/')
 
-const ICONS_SOURCE_PATH = path.join(PUBLIC_PATH,'icons/iconfont.json')
+const ICONS_SOURCE_PATH = path.join(PUBLIC_PATH,'styles/icons/iconfont.json')
 
 const ICONS_JSON_PATH = path.join(PUBLIC_PATH,'../examples/icons.json')
 

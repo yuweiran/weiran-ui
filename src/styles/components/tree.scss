@@ -1,0 +1,11 @@
+@include c(tree-node){
+  padding-left: 16px;
+  cursor: pointer;
+}
+@include c(tree-pre-icon){
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+}

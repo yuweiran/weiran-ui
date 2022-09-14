@@ -9,7 +9,7 @@ import demoBlock from './components/wrui-demo-block';
 import icons from  "./icons.json"
 
 //自己这个ui库的所有css
-import "../src/styles/index.scss"
+import "../src/styles/lib/index.min.css"
 
 //代码高亮的css
 import 'highlight.js/styles/rainbow.css'; 

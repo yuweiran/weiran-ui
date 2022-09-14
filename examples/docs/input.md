@@ -23,15 +23,12 @@
 :::demo
 ```html
 <template>
-  <wr-input v-model='account'></wr-input>
-  <div style="margin-top:20px"></div>
   <wr-input v-model='password' :showPassword='true' ></wr-input>
 </template>
 <script>
 export default {
   data(){
     return{
-      account:'',
       password:''
     }
   },

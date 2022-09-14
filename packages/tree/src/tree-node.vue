@@ -62,20 +62,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.wr-tree-pre-icon {
-  display: inline-flex;
-  width: 20px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
-}
-.wr-tree-node {
-  padding-left: 16px;
-  cursor: pointer;
-}
-.wr-tree-node-group {
-  transition: height 1s;
-}
-</style>

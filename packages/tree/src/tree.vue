@@ -14,7 +14,7 @@ export default {
     }
     let props = this.defaultProps
     return (
-      <div class="wr-tree-node-group">
+      <div class="wr-tree wr-tree-node-group">
         {this.data.map((root) => {
           Object.assign(root, initProperty)
           return <tree-node defaultProps={props} data={root}></tree-node>

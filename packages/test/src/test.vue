@@ -27,38 +27,3 @@ export default {
   computed: {},
 }
 </script>
-
-<style lang="scss" scoped>
-.wr-notify {
-  position: absolute;
-  padding: 10px;
-  width: 200px;
-  background-color: #fff;
-  box-shadow: 0 0 2px #000;
-}
-.wr-notify-top-right {
-  right: 20px;
-}
-.wr-notify-top-left {
-  left: 20px;
-}
-.wr-notify-bottom-right {
-  right: 20px;
-}
-
-.wr-notify-bottom-left {
-  left: 20px;
-}
-
-.wr-flex-ac-js {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.wr-padding-bottom-10 {
-  padding-bottom: 10px;
-}
-.wr-curser-pointer {
-  cursor: pointer;
-}
-</style>

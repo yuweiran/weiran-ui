@@ -1,24 +1,22 @@
-# wr-ui
+# weiran-ui
 
-## Project setup
+### Install
 ```
-npm install
+npm install weiran-ui
 ```
+### Usage
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+**index.js**
+```js
+import Vue from 'vue'
+import WeiranUi from 'weiran-ui';
+import "weiran-ui/src/styles/lib/index.min.css"
+Vue.use(WeiranUi)
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**example.vue**
+```html
+<template>
+  <wr-button>按钮</wr-button>
+</template>
+```
