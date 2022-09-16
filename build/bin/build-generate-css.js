@@ -20,6 +20,7 @@ const VAR_SCSS_TEMPLATE = `
 {{content}}`
 const ALL_SCSS_TEMPLATE = `
 //全部组件样式统一导入
+ @import "./icons/iconfont.scss";
 {{content}}`
   
 let variablesImportList = []
