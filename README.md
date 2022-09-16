@@ -10,7 +10,7 @@ npm install weiran-ui
 ```js
 import Vue from 'vue'
 import WeiranUi from 'weiran-ui';
-import "weiran-ui/src/styles/lib/index.min.css"
+import "weiran-ui/lib/index.min.css"
 Vue.use(WeiranUi)
 ```
 
