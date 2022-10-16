@@ -43,7 +43,7 @@ export default {
     handleMessage(type){
       this.$message({
         showClose:true,
-        text:'提示信息/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+        text:'起来，坐下，坐下，起来，用一种现实的努力，去克制一种现实的悲哀',
         type:type
       })
     }

@@ -1,18 +1,16 @@
 <template>
   <div class="f-ac-jb header-line full-height" style="padding: 0 20px">
-    <div class="full-height padding-20 position-relative us-none">
-      <img class="full-height" src="@/assets/images/loge.svg" alt="logo" />
-      <span class="position-relative" style="top: -2px; color: #5c5c66"
-        >eiran</span
-      >
+    <div class="full-height f-ac-jc  position-relative us-none">
+      <div>
+        <img style="height: 60px;" src="@/assets/images/loge.svg" alt="logo" />
+      </div>
+      <div>
+        <span class="position-relative" style="top: 3px;font-size:24px ;color:#5c5c66">weiran</span>
+      </div>
     </div>
     <div class="full-height f-ac-jc c-pointer">
-      <div
-        :class="[item.name === activePath ? 'is-active' : '', 'nav-link']"
-        @click="routeChangeTo(item)"
-        v-for="item in navList"
-        :key="item.id"
-      >
+      <div :class="[item.name === activePath ? 'is-active' : '', 'nav-link']" @click="routeChangeTo(item)"
+        v-for="item in navList" :key="item.id">
         {{ item.name }}
       </div>
     </div>
@@ -73,20 +71,25 @@ export default {
 .header-line {
   border-bottom: 1px solid #888;
 }
+
 .is-active {
   color: #8a2be2;
 }
+
 .is-active.nav-link::before {
   transition: 1s;
   left: 0;
 }
+
 .nav-link {
   padding: 10px 2px;
   position: relative;
   overflow: hidden;
-  & + & {
+
+  &+& {
     margin-left: 20px;
   }
+
   &::before {
     transition: 1s;
     position: absolute;
@@ -97,6 +100,7 @@ export default {
     left: -100%;
     background-color: #8a2be2;
   }
+
   &:hover {
     &::before {
       transition: 1s;

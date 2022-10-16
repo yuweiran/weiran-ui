@@ -1,28 +1,42 @@
 @import "../variables.scss";
 @import "../mixin/mixin.scss";
 
-@include c(select){
+@include c(select) {
   position: relative;
   display: inline-block;
   width: 160px;
-  @include c(select-inner){
+
+  @include c(select-inner) {
     width: 100%;
     outline: none;
     padding: 8px;
     border: 1px solid $wr-color-border;
   }
 
-  @include c(select-items-container){
+  @include c(select-items-container) {
     position: absolute;
+    padding: 2px 0;
     background-color: $wr-color-white;
     max-height: 200px;
     min-height: 40px;
     overflow: hidden;
     top: 40px;
-    max-height:200px ;
+    max-height: 200px;
     border: 1px solid $wr-color-border;
     width: 100%;
     z-index: 9999;
+    cursor: pointer;
+    @include c(select-item){
+      margin: 3px 0;
+      padding: 3px 4px;
+      &:hover{
+        color:$wr-color-primary;
+        background-color:$wr-color-gray ;
+        
+      }
+    }
+    .is-selected{
+      color:$wr-color-primary;
+    }
   }
 }
-

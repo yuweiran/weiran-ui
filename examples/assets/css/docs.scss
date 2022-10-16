@@ -3,6 +3,8 @@
 $demo-color-blue:#4d9dff;
 $demo-color-red:#ff5454;
 $demo-color-purple:#953dff;
+$demo-color-purple-1:#953dff94;
+$demo-color-purple-2:#943ffdcc;
 $demo-color-green:#54ff91;
 
 .wrui-container {
@@ -43,13 +45,13 @@ $demo-color-green:#54ff91;
     color: white;
   }
   .color-aa{
-    background-color:$demo-color-green;
+    background-color:$demo-color-purple-1;
   }
   .color-bb{
     background-color:$demo-color-purple;
   }
   .color-cc{
-    background-color:$demo-color-blue;
+    background-color:$demo-color-purple-2;
   }
 
 

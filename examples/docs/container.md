@@ -6,7 +6,7 @@
 ```html
   <template>
     <div style="height:200px">
-      <wr-container type="header-main" header-height="40">
+      <wr-container type="header-main" >
         <div slot='header' class="grid-demo color-cc">header</div>
         <div slot='main' class="grid-demo color-aa">main</div>
       </wr-container>
@@ -21,10 +21,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#54ff91
+      background-color:#953dff94
     }
     .color-cc{
-      background-color:#4d9dff
+      background-color:#953dffcc
     }
   </style>
 :::
@@ -34,7 +34,7 @@
 ```html
   <template>
     <div style="height:200px">
-      <wr-container type="header-main-footer" header-height="40" footer-height="40">
+      <wr-container type="header-main-footer" >
         <div slot='header' class="grid-demo color-cc">header</div>
         <div slot='main' class="grid-demo color-aa">main</div>
         <div slot='footer' class="grid-demo color-cc">footer</div>
@@ -50,10 +50,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#54ff91
+      background-color:#953dff94
     }
     .color-cc{
-      background-color:#4d9dff
+      background-color:#953dffcc
     }
   </style>
 :::
@@ -86,10 +86,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#54ff91
+      background-color:#953dff94
     }
     .color-cc{
-      background-color:#4d9dff
+      background-color:#953dffcc
     }
   </style>
 :::
@@ -158,13 +158,13 @@
       color: white;
     }
     .color-aa{
-      background-color:#54ff91
+      background-color:#953dff94
     }
     .color-bb{
       background-color:#953dff
     }
     .color-cc{
-      background-color:#4d9dff
+      background-color:#953dffcc
     }
   </style>
 :::

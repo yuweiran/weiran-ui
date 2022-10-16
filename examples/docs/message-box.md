@@ -45,7 +45,7 @@ export default {
   methods: {
     handleShowConfirmBox(){
       this.$confirm({
-        content:'选择了，便要承担选择的后果，是否继续？'
+        content:'确定取消当前操作？'
       }).then(res=>{
         console.log(res)
       }).catch(res=>{
@@ -77,9 +77,18 @@ export default {
   methods: {
     handleShowConfirmBox(){
       this.$prompt({
-        content:'人终将毁灭于自己所热爱的事物，你热爱的事物是？'
+        content:'"人生在世不称意"下一句是：'
       }).then(res=>{
         console.log(res)
+        if(res==="明朝散发弄扁舟"){
+          this.$message.success({
+            text:"回答正确！"
+          })
+        }else{
+          this.$message.danger({
+            text:"回答错误！"
+          })
+        }
       }).catch(res=>{
         console.log('err')  
       })

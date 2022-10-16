@@ -56,7 +56,7 @@ export default {
             this.destroyEl()
           }}
         >
-          <div vShow={visible} class="wr-message-confirm">
+          <div vShow={visible} onClick={(e) => { e.stopPropagation() }} class="wr-message-confirm">
             <div class="wr-message-confirm-header">
               <div>{title || '提示'}</div>
               <div>

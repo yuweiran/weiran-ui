@@ -1322,6 +1322,7 @@
 }
 .wr-select .wr-select-items-container {
   position: absolute;
+  padding: 2px 0;
   background-color: #ffffff;
   max-height: 200px;
   min-height: 40px;
@@ -1331,6 +1332,18 @@
   border: 1px solid #dcdfe6;
   width: 100%;
   z-index: 9999;
+  cursor: pointer;
+}
+.wr-select .wr-select-items-container .wr-select-item {
+  margin: 3px 0;
+  padding: 3px 4px;
+}
+.wr-select .wr-select-items-container .wr-select-item:hover {
+  color: #1989fa;
+  background-color: #eeeeee;
+}
+.wr-select .wr-select-items-container .is-selected {
+  color: #1989fa;
 }
 
 @keyframes wr-progress-load-animate {

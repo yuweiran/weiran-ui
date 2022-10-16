@@ -1,19 +1,11 @@
 <template>
   <div class="wr-mask" @click.stop.prevent="close">
-    <transition
-      @after-leave="destroyEl"
-      appear
-      enter-active-class="animate__animated  animate__fadeIn"
-    >
-      <div v-show="visible" :class="['wr-message-alert']">
+    <transition @after-leave="destroyEl" appear enter-active-class="animate__animated  animate__fadeIn">
+      <div v-show="visible" @click.stop.prevent="" :class="['wr-message-alert']">
         <div class="wr-message-alert-header">
           <div>{{ title || '提示' }}</div>
           <div>
-            <span
-              @click="close"
-              style="font-size: 18px"
-              class="wr-icon-remove"
-            ></span>
+            <span @click="close" style="font-size: 18px" class="wr-icon-remove"></span>
           </div>
         </div>
         <div class="wr-message-alert-main">

@@ -1,29 +1,15 @@
 <template>
-  <div class="wr-select">
-    <input
-      :tabindex="tabindex"
-      v-bind="$attrs"
-      :class="['wr-select-inner']"
-      :readonly="readonly"
-      :autocomplete="autocomplete"
-      ref="input"
-      @input="handleInput"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @change="handleChange"
-    />
-    <div class="wr-select-items-container" v-show="focused">
+  <div ref="wrSelect" class="wr-select">
+    <input v-bind="$attrs" :class="['wr-select-inner']" :readonly="readonly" ref="input" @input="handleInput"
+      @focus="handleFocus" @blur="handleBlur" @click="focused = !focused" @change="handleChange" />
+    <div class="wr-select-items-container" @mousedown.stop.prevent="" v-show="focused">
       <template v-if="list.length === 0">
         <div>无匹配数据</div>
       </template>
       <template v-else>
-        <div
-          v-for="item in list"
-          @click.prevent="handleSelectCurrentItem(item)"
-          :key="item.value"
-          style="cursor: pointer"
-        >
-          {{ item.text }}
+        <div :class="['wr-select-item',{'is-selected':item[propsReflect.value]===selectItem[propsReflect.value]}]"
+          v-for="item in list" @click.stop="handleSelectCurrentItem(item)" :key="item[propsReflect.id]">
+          {{ item[propsReflect.label] }}
         </div>
       </template>
     </div>
@@ -39,6 +25,7 @@ export default {
     return {
       focused: false,
       showList: true,
+      selectItem: {}
     }
   },
 
@@ -46,63 +33,35 @@ export default {
     list: Array,
     value: [String, Number],
     size: String,
-    resize: String,
     form: String,
     disabled: Boolean,
     readonly: Boolean,
-    type: {
-      type: String,
-      default: 'text',
-    },
-    autocomplete: {
-      type: String,
-      default: 'off',
-    },
-
-    showPassword: {
-      type: Boolean,
-      default: false,
-    },
-    showWordLimit: {
-      type: Boolean,
-      default: false,
-    },
-    tabindex: String,
-    height: [String, Number],
+    props: Object
   },
 
   computed: {
-    inputDisabled() {
-      return this.disabled
+    propsReflect() {
+
+      return {
+        id: 'id',
+        value: 'value',
+        label: 'label',
+        ...this.props
+      }
     },
     nativeInputValue() {
       return this.value === null || this.value === undefined
         ? ''
         : String(this.value)
     },
-    isWordLimitVisible() {
-      return (
-        this.showWordLimit &&
-        this.$attrs.maxlength &&
-        (this.type === 'text' || this.type === 'textarea') &&
-        !this.inputDisabled &&
-        !this.readonly &&
-        !this.showPassword
-      )
-    },
-    upperLimit() {
-      return this.$attrs.maxlength
-    },
-    textLength() {
-      if (typeof this.value === 'number') {
-        return String(this.value).length
-      }
-
-      return (this.value || '').length
-    },
   },
 
   watch: {
+    focused(value) {
+      if (value) {
+        this.getPosition()
+      }
+    },
     nativeInputValue() {
       this.setNativeInputValue()
     },
@@ -134,11 +93,12 @@ export default {
       input.value = this.nativeInputValue
     },
     handleFocus(event) {
-      this.focused = true
       this.$emit('focus', event)
     },
     handleSelectCurrentItem(item) {
-      this.$emit('input', item.value)
+      this.selectItem = item
+      this.$emit('input', item[this.propsReflect.label])
+      this.focused = false
     },
     handleInput(event) {
       if (event.target.value === this.nativeInputValue) return
@@ -161,14 +121,20 @@ export default {
     getInput() {
       return this.$refs.input || this.$refs.textarea
     },
+    getPosition() {
+      console.dir(this.$refs.wrSelect)
+      console.dir(this.$refs.wrSelect.clientTop)
+      console.dir(this.$refs.wrSelect.offsetTop)
+      console.dir(this.$refs.wrSelect.scrollTop)
+    }
   },
-
   created() {
     this.$on('inputSelect', this.select)
   },
 
   mounted() {
     this.setNativeInputValue()
+    console.log(this.propsReflect)
   },
 }
 </script>

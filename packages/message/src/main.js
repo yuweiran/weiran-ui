@@ -33,7 +33,6 @@ const MessageFunc =  function(options){
   NoticeList.push(instance)
   document.body.appendChild(instance.$el)
   refreshElPosition()
-  
 }
 
 //关闭
