@@ -5,7 +5,7 @@
         <div class="wr-message-prompt-header">
           <div>{{ title || '提示' }}</div>
           <div>
-            <span @click="close" style="font-size: 18px" class="wr-icon-remove"></span>
+            <span @click="close" style="font-size: 13px" class="wr-icon-remove"></span>
           </div>
         </div>
         <div class="wr-message-prompt-main">

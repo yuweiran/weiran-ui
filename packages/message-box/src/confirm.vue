@@ -62,7 +62,7 @@ export default {
               <div>
                 <span
                   vOn:click={() => _this.close()}
-                  style="font-size: 18px"
+                  style="font-size: 13px"
                   class="wr-icon-remove"
                 ></span>
               </div>

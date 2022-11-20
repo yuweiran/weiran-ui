@@ -1,0 +1,9 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+@include c(drag-item){
+  cursor:move;
+  position: absolute;
+  @include when(selected){
+    color: red;
+  }
+}

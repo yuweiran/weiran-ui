@@ -2,6 +2,7 @@ import notify from './main.vue'
 import Vue from 'vue'
 
 let Notify = Vue.extend(notify)
+
 let ind =1
 let NoticeList = {
   'top-left':[],

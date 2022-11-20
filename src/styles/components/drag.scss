@@ -1,0 +1,6 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include c(drag){
+  position: relative;
+}

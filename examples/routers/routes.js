@@ -58,6 +58,11 @@
       path:"badge",
       component:()=>import('@/docs/badge.md')
     }
+    ,
+{
+      path:"slider",
+      component:()=>import('@/docs/slider.md')
+    }
     
       ],
     }  
@@ -121,11 +126,6 @@
         {
       path:"video",
       component:()=>import('@/docs/video.md')
-    }
-    ,
-{
-      path:"drag",
-      component:()=>import('@/docs/drag.md')
     }
     
       ],

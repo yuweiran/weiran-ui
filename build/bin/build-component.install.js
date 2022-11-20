@@ -1,4 +1,4 @@
-//package/组件/index.js生成
+//packages/组件/index.js生成
 const fs = require('fs')
 const path = require('path')
 const uppercamelcase = require('uppercamelcase');
@@ -23,7 +23,7 @@ const COMPONENTS_DEFINE_PATH  = path.join(__dirname,'../../packages/')
 
 fs.readdir(COMPONENTS_DEFINE_PATH,{encoding:'utf-8'},(err,files)=>{
   files.forEach(item=>{
-    let excludeComponents=['checkbox-group']
+    let excludeComponents=['checkbox-group','drag']
     //这里面组件手写install文件
     if(excludeComponents.indexOf(item)===-1){
       const srcPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/src/`)

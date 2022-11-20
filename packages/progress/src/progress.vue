@@ -1,20 +1,17 @@
 <template>
   <div class="wr-progress">
-    <div class="wr-progress-container wr-flex-1 wr-flex-ac">
-      <div
-        :class="[
-          'wr-progress-loaded',
-          status ? `wr-progress-status-${status}` : '',
-          stripeType ? `wr-progress-load-${stripeType}` : '',
-        ]"
-        :style="{
-          width: progressValue + '%',
-          'background-color': customColor ? currentCustomColor : 'none',
-        }"
-      ></div>
+    <div @click="handleProgressClick" class="wr-progress-container wr-flex-1 wr-flex-ac">
+      <div :class="[
+        'wr-progress-loaded',
+        status ? `wr-progress-status-${status}` : '',
+        stripeType ? `wr-progress-load-${stripeType}` : '',
+      ]" :style="{
+  width: progressValue + '%',
+  'background-color': customColor ? currentCustomColor : 'none',
+}"></div>
     </div>
-    <div class="wr-progress-value">
-      {{ hiddenPercent ? '' : progressValue + '%' }}
+    <div v-if="!hiddenPercent" class="wr-progress-value">
+      {{ progressValue + '%' }}
     </div>
   </div>
 </template>
@@ -115,5 +112,10 @@ export default {
       }
     },
   },
+  methods: {
+    handleProgressClick(e) {
+      console.log(e.layerX)
+    }
+  }
 }
 </script>

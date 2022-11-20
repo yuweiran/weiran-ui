@@ -1,5 +1,5 @@
 ## Message
-
+### 默认效果
 :::demo
 ```html
 <template>
@@ -23,7 +23,7 @@ export default {
 </script>
 ```
 :::
-
+### 自动换行、手动取消
 :::demo
 ```html
 <template>
@@ -52,7 +52,7 @@ export default {
 </script>
 ```
 :::
-
+### 单行、手动取消
 :::demo
 ```html
 <template>

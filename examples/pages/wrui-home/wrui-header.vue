@@ -2,10 +2,10 @@
   <div class="f-ac-jb header-line full-height" style="padding: 0 20px">
     <div class="full-height f-ac-jc  position-relative us-none">
       <div>
-        <img style="height: 60px;" src="@/assets/images/loge.svg" alt="logo" />
+        <img style="height: 52px;" src="@/assets/images/loge.svg" alt="logo" />
       </div>
-      <div>
-        <span class="position-relative" style="top: 3px;font-size:24px ;color:#5c5c66">weiran</span>
+      <div style="margin-left: 12px">
+        <span class="position-relative" style="font-size:18px ;color:#5c5c66">weiran-UI</span>
       </div>
     </div>
     <div class="full-height f-ac-jc c-pointer">
@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-line {
-  border-bottom: 1px solid #888;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 3%), 0 1px 6px -1px rgb(0 0 0 / 2%), 0 2px 4px 0 rgb(0 0 0 / 2%);
 }
 
 .is-active {
@@ -85,6 +85,7 @@ export default {
   padding: 10px 2px;
   position: relative;
   overflow: hidden;
+  font-size: 14px;
 
   &+& {
     margin-left: 20px;

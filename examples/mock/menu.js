@@ -44,6 +44,11 @@
       path:"badge",
       text:"Badge    徽章"
     }
+    ,
+{
+      path:"slider",
+      text:"Slider    滑块"
+    }
     
       ],
       text:"data"
@@ -104,11 +109,6 @@
         {
       path:"video",
       text:"Video    视频"
-    }
-    ,
-{
-      path:"drag",
-      text:"Drag    拖拽"
     }
     
       ],

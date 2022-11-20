@@ -1,43 +1,18 @@
 <template>
   <div :class="[type === 'textarea' ? 'wr-textarea' : 'wr-input']">
     <template v-if="type !== 'textarea'">
-      <input
-        :tabindex="tabindex"
-        v-if="type !== 'textarea'"
-        v-bind="$attrs"
-        :class="['wr-input-inner']"
-        :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
-        :readonly="readonly"
-        :autocomplete="autocomplete"
-        ref="input"
-        @input="handleInput"
-        @focus="handleFocus"
-        @blur="handleBlur"
-        @change="handleChange"
-      />
+      <input :tabindex="tabindex" v-if="type !== 'textarea'" v-bind="$attrs" :class="['wr-input-inner']"
+        :type="showPassword ? (passwordVisible ? 'text' : 'password') : type" :readonly="readonly"
+        :autocomplete="autocomplete" ref="input" @input="handleInput" @focus="handleFocus" @blur="handleBlur"
+        @change="handleChange" />
     </template>
-    <textarea
-      v-else
-      :tabindex="tabindex"
-      class="wr-textarea-inner"
-      @input="handleInput"
-      :style="{
-        height: `${typeof height === 'number' ? height + px : height}`,
-        resize: resize,
-      }"
-      ref="textarea"
-      v-bind="$attrs"
-      :disabled="inputDisabled"
-      :readonly="readonly"
-      :autocomplete="autocomplete"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      @change="handleChange"
-    >
+    <textarea v-else :tabindex="tabindex" class="wr-textarea-inner" @input="handleInput" :style="{
+      height: `${typeof height === 'number' ? height + px : height}`,
+      resize: resize,
+    }" ref="textarea" v-bind="$attrs" :disabled="inputDisabled" :readonly="readonly" :autocomplete="autocomplete"
+      @focus="handleFocus" @blur="handleBlur" @change="handleChange">
     </textarea>
-    <span v-if="isWordLimitVisible" class="wr-input__count"
-      >{{ textLength }}/{{ upperLimit }}</span
-    >
+    <span v-if="isWordLimitVisible" class="wr-input__count">{{ textLength }}/{{ upperLimit }}</span>
   </div>
 </template>
 <script>

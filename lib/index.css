@@ -670,6 +670,156 @@
   opacity: 0;
 }
 
+.wr-drag-item {
+  cursor: move;
+  position: absolute;
+}
+.wr-drag-item.is-selected {
+  color: red;
+}
+
+@keyframes wr-progress-load-animate {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes wr-progress-load-animate-zebra {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+.wr-jc-sb, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message {
+  justify-content: space-between;
+}
+
+.wr-ai-c, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup, .wr-button {
+  align-items: center;
+}
+
+.wr-flex, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup {
+  display: flex;
+}
+
+.wr-jc-c, .wr-flex-ac-jc, .wr-button {
+  justify-content: center;
+}
+
+.wr-fd-c {
+  flex-direction: column;
+}
+
+.wr-flex-1 {
+  flex: 1;
+}
+
+.wr-whitespace-nowrap, .wr-button {
+  white-space: nowrap;
+}
+
+.wr-curser-pointer {
+  cursor: pointer;
+}
+
+.wr-full-height {
+  height: 100%;
+}
+
+.wr-overflow-auto {
+  overflow: auto;
+}
+
+.el-notification-fade-enter.right {
+  right: 0;
+  transform: translateX(100%);
+}
+.el-notification-fade-enter.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.el-notification-fade-leave-active {
+  opacity: 0;
+}
+
+.wr-drag {
+  position: relative;
+}
+
+@keyframes wr-progress-load-animate {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes wr-progress-load-animate-zebra {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+.wr-jc-sb, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message {
+  justify-content: space-between;
+}
+
+.wr-ai-c, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup, .wr-button {
+  align-items: center;
+}
+
+.wr-flex, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup {
+  display: flex;
+}
+
+.wr-jc-c, .wr-flex-ac-jc, .wr-button {
+  justify-content: center;
+}
+
+.wr-fd-c {
+  flex-direction: column;
+}
+
+.wr-flex-1 {
+  flex: 1;
+}
+
+.wr-whitespace-nowrap, .wr-button {
+  white-space: nowrap;
+}
+
+.wr-curser-pointer {
+  cursor: pointer;
+}
+
+.wr-full-height {
+  height: 100%;
+}
+
+.wr-overflow-auto {
+  overflow: auto;
+}
+
+.el-notification-fade-enter.right {
+  right: 0;
+  transform: translateX(100%);
+}
+.el-notification-fade-enter.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.el-notification-fade-leave-active {
+  opacity: 0;
+}
+
 .wr-input, .wr-textarea {
   position: relative;
 }
@@ -1446,4 +1596,91 @@
   height: 20px;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes wr-progress-load-animate {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes wr-progress-load-animate-zebra {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+.wr-jc-sb, .wr-flex-ac-jb, .wr-message, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-notify-header {
+  justify-content: space-between;
+}
+
+.wr-ai-c, .wr-flex-ac, .wr-flex-ac-jb, .wr-flex-ac-jc, .wr-badge-sup, .wr-button, .wr-message, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-notify-header, .wr-progress {
+  align-items: center;
+}
+
+.wr-flex, .wr-flex-ac, .wr-flex-ac-jb, .wr-flex-ac-jc, .wr-badge-sup, .wr-message, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-notify-header, .wr-progress {
+  display: flex;
+}
+
+.wr-jc-c, .wr-flex-ac-jc, .wr-button {
+  justify-content: center;
+}
+
+.wr-fd-c {
+  flex-direction: column;
+}
+
+.wr-flex-1 {
+  flex: 1;
+}
+
+.wr-whitespace-nowrap, .wr-button {
+  white-space: nowrap;
+}
+
+.wr-curser-pointer {
+  cursor: pointer;
+}
+
+.wr-full-height {
+  height: 100%;
+}
+
+.wr-overflow-auto {
+  overflow: auto;
+}
+
+.el-notification-fade-enter.right {
+  right: 0;
+  transform: translateX(100%);
+}
+.el-notification-fade-enter.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.el-notification-fade-leave-active {
+  opacity: 0;
+}
+
+.wr-video {
+  width: 100%;
+  position: relative;
+}
+.wr-video_inner {
+  width: 100%;
+}
+.wr-video-mask {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  background-color: cyan;
 }

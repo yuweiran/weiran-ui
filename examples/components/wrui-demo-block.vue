@@ -3,7 +3,7 @@
     <div class="source">
       <slot name="source"></slot>
     </div>
-    <div v-show="showCode" class="meta" ref="meta">
+    <div class="meta" ref="meta">
       <div class="description" v-if="$slots.default">
         <slot></slot>
       </div>
@@ -11,7 +11,7 @@
         <slot name="highlight"></slot>
       </div>
     </div>
-    <div class="demo-block-control" @click="showCode = !showCode">
+    <div class="demo-block-control" @click="handleChangeShowCode">
       <span class="wr-icon-code"></span>
     </div>
   </div>
@@ -20,9 +20,23 @@
 export default {
   data() {
     return {
-      showCode: false,
+      showCode: false
     }
   },
+  methods: {
+    handleChangeShowCode() {
+      this.showCode = !this.showCode
+      if (this.showCode) {
+        this.$refs.meta.style.height = this.$refs.meta.scrollHeight + 'px'
+      } else {
+        this.$refs.meta.style.height = '0'
+      }
+
+    }
+  },
+  mounted() {
+    this.$refs.meta.style.height = 0
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -91,6 +105,7 @@ export default {
       margin: 0;
       padding: 20px;
     }
+
     .hljs {
       overflow: auto;
     }
@@ -117,7 +132,7 @@ export default {
       transition: 0.3s;
     }
 
-    > span {
+    >span {
       font-size: 20px;
     }
 

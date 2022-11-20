@@ -1,15 +1,50 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3613953 */
-  src: url('./icons/iconfont.woff2?t=1662453185477') format('woff2'),
-       url('./icons/iconfont.woff?t=1662453185477') format('woff'),
-       url('./icons/iconfont.ttf?t=1662453185477') format('truetype');
+  src: url('./icons/iconfont.woff2?t=1667372954839') format('woff2'),
+       url('./icons/iconfont.woff?t=1667372954839') format('woff'),
+       url('./icons/iconfont.ttf?t=1667372954839') format('truetype');
 }
 
-[class^="wr-icon-"], [class*="wr-icon-"]  {
+[class^="wr-icon-"],  [class*="wr-icon-"]  {
   font-family: "iconfont" !important;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.wr-icon-mini-screen:before {
+  content: "\e7d6";
+}
+
+.wr-icon-playing:before {
+  content: "\e618";
+}
+
+.wr-icon-full-screen:before {
+  content: "\e62f";
+}
+
+.wr-icon-lock:before {
+  content: "\e9d8";
+}
+
+.wr-icon-unlock:before {
+  content: "\e9db";
+}
+
+.wr-icon-pausing:before {
+  content: "\ea82";
+}
+
+.wr-icon-link-tv:before {
+  content: "\e63a";
+}
+
+.wr-icon-pre:before {
+  content: "\e609";
+}
+
+.wr-icon-next:before {
+  content: "\e60a";
 }
 
 .wr-icon-fill-top:before {

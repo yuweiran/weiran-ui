@@ -7,7 +7,7 @@
 ```html
 <template>
   <wr-drag class='wr-drag-demo' ref='demoDrag' :data="testData"  :config="dragConfig">
-    <div v-for="(item,index) in  testData" :key='index'  :data-id="item.id">{{item}}</div>
+    <wr-drag-item v-for="(item,index) in  testData" :key='index'  >{{item.text}}</wr-drag-item>
   </wr-drag>
   <wr-button @click='getCurrentData'>打印当前数据</wr-button>
 </template>

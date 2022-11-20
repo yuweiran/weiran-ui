@@ -7,6 +7,7 @@
     <wr-progress percent='50'></wr-progress>
     <wr-progress :hidden-percent='true' percent='1' total='3'></wr-progress>
     <wr-button @click='percent+=20'>percent+20</wr-button>
+    <wr-button @click='percent-=20'>percent-20</wr-button>
   </template>
   <script>
   export default {

@@ -16,6 +16,10 @@
     {
       "path": "/badge",
       "name": "徽章"
+    },
+    {
+      "path": "/slider",
+      "name": "滑块"
     }
   ]
 }

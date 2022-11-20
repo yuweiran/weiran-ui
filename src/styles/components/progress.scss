@@ -2,20 +2,21 @@
 @import "../variables.scss";
 
 @include c(progress){
+  height: 10px;
   @extend .wr-flex-ac;
   margin: 10px 0;
 
   &-container {
+    height: 100%;
     width: 100%;
     background-color: #0002;
   }
   @include c(progress-loaded){
     position: relative;
-    height: 10px;
+    height: 100%;
     background-color: #1989fa;
     transition: 500ms;
     overflow: hidden;
-
     &::before{
       content: '';
       position: absolute;

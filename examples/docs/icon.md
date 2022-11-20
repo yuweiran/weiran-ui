@@ -5,7 +5,7 @@
 :::demo
 ```html
 <template>
-  <div style="font-size:20px">
+  <div >
     <i class="wr-icon-edit"></i>
     <i class="wr-icon-search"></i>
     <i class="wr-icon-delete"></i>

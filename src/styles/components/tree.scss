@@ -1,11 +1,21 @@
 @include c(tree-node){
   padding-left: 16px;
   cursor: pointer;
-}
-@include c(tree-pre-icon){
-  display: inline-flex;
-  width: 20px;
-  height: 20px;
-  justify-content: center;
-  align-items: center;
+
+
+  .wr-tree-expand{
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+
+    @include c(tree-pre-icon){
+      margin-right: 4px;
+    }
+  }
+
+  @include c(tree-node-group){
+    transition: height 2s;
+    height: auto;
+  }
 }

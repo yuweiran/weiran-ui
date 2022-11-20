@@ -4,10 +4,6 @@
     {
       "path": "/video",
       "name": "视频"
-    },
-    {
-      "path": "/drag",
-      "name": "拖拽"
     }
   ]
 }

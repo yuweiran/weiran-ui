@@ -1,0 +1,54 @@
+@import "../mixin/mixin.scss";
+@import "../variables.scss";
+
+@include c(slider){
+  margin:10px 0 ;
+  background-color: #ddd;
+  cursor: pointer;
+
+  &-loaded{
+    height: 100%;
+    background-color: $wr-color-success;
+    overflow: visible;
+    position: relative;
+    @include c(slider-button){
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(50%,-50%);
+      @include c(slider-tooltip){
+        position: absolute;
+        padding: 4px;
+        top: -28px;
+        left: 50%;
+        font-size: 12px;
+        transform: translate(-50%,0);
+        color: white;
+        background-color: rebeccapurple;
+      }
+  
+      @include c(slider-inner-btn){
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        border: 1px solid  $wr-color-success;
+        background-color: white;
+        cursor:grab;
+      }
+    }
+
+    @include c(slider-loader-tooltip){
+      position: absolute;
+      padding: 4px;
+      font-size:12px;
+      top: -28px;
+      transform: translate(-50%,0);
+      color: white;
+      background-color: rebeccapurple;
+    }
+  }
+
+
+
+
+}

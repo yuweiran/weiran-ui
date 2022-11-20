@@ -11,6 +11,8 @@ function broadcast(componentName, eventName, params) {
 }
 export default {
   methods: {
+    //子组件先this.$emit('change', value, event),接着调dispatch
+    //子向父传值，dispatch，参数（父组件名，'change',父组件的值）
     dispatch(componentName, eventName, params) {
       var parent = this.$parent || this.$root;
       var name = parent.$options.componentName;

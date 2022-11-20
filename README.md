@@ -1,5 +1,8 @@
 # weiran-ui
 
+### 文档地址
+[weiran-ui文档](http://yuweiran.cn/)
+
 ### Install
 ```
 npm install weiran-ui

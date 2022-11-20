@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "25537592",
+      "name": "退出全屏",
+      "font_class": "mini-screen",
+      "unicode": "e7d6",
+      "unicode_decimal": 59350
+    },
+    {
+      "icon_id": "1447736",
+      "name": "暂停",
+      "font_class": "playing",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "5650911",
+      "name": "全屏",
+      "font_class": "full-screen",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "7577444",
+      "name": "24gf-lock2",
+      "font_class": "lock",
+      "unicode": "e9d8",
+      "unicode_decimal": 59864
+    },
+    {
+      "icon_id": "7577450",
+      "name": "24gf-unlock4",
+      "font_class": "unlock",
+      "unicode": "e9db",
+      "unicode_decimal": 59867
+    },
+    {
+      "icon_id": "7594155",
+      "name": "24gf-play",
+      "font_class": "pausing",
+      "unicode": "ea82",
+      "unicode_decimal": 60034
+    },
+    {
+      "icon_id": "20286865",
+      "name": "投屏@2x",
+      "font_class": "link-tv",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "31314866",
+      "name": "上一集",
+      "font_class": "pre",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "31314867",
+      "name": "下一集",
+      "font_class": "next",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
       "icon_id": "1718351",
       "name": "上箭头",
       "font_class": "fill-top",
