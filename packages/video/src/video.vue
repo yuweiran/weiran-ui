@@ -1,5 +1,5 @@
 <template>
-  <div ref="videoPlayer" class="wr-video">
+  <div ref="videoPlayer" class="wr-video" @mouseover="showMask = true" @mouseleave="showMask = false">
     <video ref="weiranVideo" @abort="handleAbort" @canplay="handleCanplay" @canplaythrough="handleCanplayThrough"
       @durationchange="handleDurationchange" @emptied="handleEmptied" @ended="handleEnded" @error="handleError"
       @loadeddata="handleLoadedData" @loadedmetadata="handleLoadedMetaData" @loadstart="handleLoadedStart"
@@ -9,10 +9,10 @@
       @waiting="handleWaiting" class="wr-video_inner">
       <source v-for="video in sourcesList" :key="video.src" :src="video.src" :type="video.type" />
     </video>
-    <div class="wr-video-mask">
+    <div v-show="showMask" class="wr-video-mask">
       <div class="wr-video-mask-header">
         <div>
-          <slot name="header-left">可以是标题</slot>
+          <slot name="header-left"></slot>
         </div>
         <div>
           <slot name="header-right"></slot>
@@ -33,14 +33,29 @@
           </slot>
         </div>
         <div class="wr-video-mask-footer-progress">
-          <Slider :height="4" :hiddenControllerToolTip="true" :format-tooltip='getVideoTime'
+          <Slider :height="4" :hiddenControllerToolTip="true" :auto-change="false" :format-tooltip='getVideoTime'
             v-model='currentVideoSeconds' @change="handleChangeProcess" :total="totalVideoSeconds"></Slider>
         </div>
         <div class="wr-video-mask-footer-right">
           <span class="video-operate-item">{{ totalTime }}</span>
-          <span class="video-operate-item">倍速</span>
-          <span class="video-operate-item">声音</span>
-          <span class="video-operate-item">设置</span>
+
+          <wr-dropdown placement="top">
+            <span class="video-operate-item">倍速</span>
+            <wr-dropdown-menu slot="dropdown">
+              <wr-dropdown-item @click="handleSetRate(rate.value)" v-for="rate in playbackRates" :key="rate.id">
+                {{ rate.name }}
+              </wr-dropdown-item>
+            </wr-dropdown-menu>
+          </wr-dropdown>
+          <wr-dropdown placement="top" :auto-hidden="false">
+            <span class="video-operate-item">声音</span>
+            <wr-dropdown-menu slot="dropdown">
+              <div style="width: 120px;padding: 0 10px;">
+                <Slider v-model="currentVolume"></Slider>
+              </div>
+            </wr-dropdown-menu>
+          </wr-dropdown>
+          <!-- <span class="video-operate-item">设置</span> -->
           <i v-show="!isFullScreen" @click="handleSetVideoFullScreen"
             class="video-operate-item wr-icon-full-screen"></i>
           <i v-show="isFullScreen" @click="handleSetVideoFullScreen" class="video-operate-item wr-icon-mini-screen"></i>
@@ -52,12 +67,15 @@
 
 <script>
 import Fullscreen from "../../../src/utils/fullscreen"
-import Slider from "./slider.vue"
+import Slider from "../../slider/src/slider.vue"
+import WrDropdown from "../../dropdown/src/dropdown.vue"
+import WrDropdownMenu from "../../dropdown/src/dropdown-menu.vue"
+import WrDropdownItem from "../../dropdown/src/dropdown-item.vue"
 export default {
   name: "wrVideo",
   mixins: [Fullscreen],
   components: {
-    Slider
+    Slider, WrDropdown, WrDropdownMenu, WrDropdownItem
   },
   props: {
     sources: {
@@ -67,9 +85,18 @@ export default {
   },
   data() {
     return {
+      showMask: false,
       isPlaying: false,
       player: null,
       totalVideoSeconds: 1,
+      playbackRates: [
+        { id: 0, value: 0.75, name: '×0.75' },
+        { id: 1, value: 1, name: '×1' },
+        { id: 2, value: 1.5, name: '×1.5' },
+        { id: 3, value: 2, name: '×2' },
+        { id: 4, value: 3, name: '×3' },
+      ],
+      currentVolume: 100,
       totalTime: '0:0:0',
       isFullScreen: false,
       currentVideoSeconds: 0,
@@ -94,11 +121,15 @@ export default {
     }
   },
   methods: {
+    handleSetRate(rate) {
+      if (this.$refs.weiranVideo) {
+        this.$refs.weiranVideo.playbackRate = rate;
+      }
+    },
     handleChangeVideoState() {
       let state = !this.isPlaying
       let player = this.$refs.weiranVideo
       this.isPlaying = state
-      player.volume = 0.5
       if (state) {
         player.play()
       } else {
@@ -235,12 +266,17 @@ export default {
       console.log(videoPlayer.currentSrc); //播放源地址
       console.log(videoPlayer.duration); //视频长度
       console.log(videoPlayer.seeking); //
-      console.dir(videoPlayer)
+      console.dir(videoPlayer.volume)
     }, 1000);
     // videoPlayer.currentTime = 66; //设置视频当前时间、位置
     // videoPlayer.playbackRate = 1.25; //设置视频播放速度
     // videoPlayer.volume = 0.8; //音量大小，0-1
     document.addEventListener("fullscreenchange", this.handleScreenEvent)
+  },
+  watch: {
+    currentVolume(val) {
+      this.$refs.weiranVideo.volume = val / 100
+    }
   },
   beforeDestroy() {
     document.removeEventListener('fullscreenchange', this.handleScreenEvent)

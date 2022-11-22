@@ -1,5 +1,5 @@
 <template>
-  <div class="wr-tree-node">
+  <div class="wr-tree-node" ref="treeNode">
     <div @click="nodeExpand(data[defaultProps.children], data)" class="wr-tree-expand">
       <span :class="[
         'wr-tree-pre-icon',
@@ -39,6 +39,9 @@ export default {
           this.firstExpandedFinish = true
         }
         this.isExpanded = !this.isExpanded
+        this.$nextTick(() => {
+          console.dir(this.$refs.treeNode)
+        })
 
       }
       this.$emit('node-click', nodeData)

@@ -1,12 +1,17 @@
 <template>
   <div class="menu-container">
     <div class="c-pointer menu-group" v-for="(group, index) in menu" :key="index">
-      <div class="menu-group-name" @click="groupNodeClick(group)">
-        {{ group.text }}
+      <div class="menu-group-name f-ac" @click.prevent.stop="groupNodeClick(group)">
+        <img style="height: 22px; width: 22px;margin-right: 10px;"
+          :src="require(`../../assets/images/${group.text}.svg`)" alt="" srcset="">
+        {{ !mini ? group.text : '' }}
       </div>
-      <div :class="['menu-child', active === child.path ? 'is-active' : '']" v-for="(child, childI) in group.children"
-        :key="childI" @click="nodeClick(group.path + '/' + child.path, child.path)">
-        <span class="menu-child-text">{{ child.text }}</span>
+      <div :class="[mini ? 'is-mini' : '']" v-show="!mini ? true : group.text === activeGroup"
+        :style="{ 'background-color': 'white' }">
+        <div :class="['menu-child', active === child.path ? 'is-active' : '']" v-for="(child, childI) in group.children"
+          :key="childI" @click.prevent.stop="nodeClick(group.path + '/' + child.path, child.path)">
+          <span class="menu-child-text">{{ child.text }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -19,6 +24,13 @@ export default {
     return {
       menu: menuData,
       active: '',
+      activeGroup: ''
+    }
+  },
+  props: {
+    mini: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -31,17 +43,28 @@ export default {
       }
     },
     groupNodeClick(group) {
-      if (this.$route.fullPath !== group.path) {
-        this.$router.replace(group.path)
-        sessionStorage.setItem('activeRoutePath', group.path)
-        this.$emit('scrolltop')
+      if (!this.mini) {
+        if (this.$route.fullPath !== group.path) {
+          this.$router.replace(group.path)
+          sessionStorage.setItem('activeRoutePath', group.path)
+          this.$emit('scrolltop')
+        }
+        this.setActivePath(group.children[0].path)
+      } else {
+        if (this.activeGroup === group.text) {
+          this.activeGroup = ""
+        } else {
+          this.activeGroup = group.text
+        }
       }
-      this.setActivePath(group.children[0].path)
     },
     setActivePath(path) {
       this.active = path
       sessionStorage.setItem('activeComponent', path)
     },
+    clearActiveGroup() {
+      this.activeGroup = ''
+    }
   },
   created() {
     if (sessionStorage.getItem('activeComponent')) {
@@ -51,16 +74,45 @@ export default {
       sessionStorage.setItem('activeComponent', 'button')
     }
   },
+  mounted() {
+    document.addEventListener('click', this.clearActiveGroup)
+  },
+  watch: {
+    mini() {
+      this.activeGroup = ''
+    }
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.clearActiveGroup)
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .menu-container {
   border-right: 1px solid #54545434;
+  overflow: visible;
 
   .menu-group {
     font-size: 14px;
+    overflow: visible;
     color: rgba(0, 0, 0, .88);
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+
+    .is-mini {
+      position: absolute;
+      box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%), 0 9px 28px 8px rgb(0 0 0 / 5%);
+      top: 0;
+      left: 72px;
+      z-index: 99999;
+      border-radius: 4px;
+
+      .menu-child {
+        position: relative;
+        padding: 0 20px;
+      }
+    }
 
     .menu-group-name,
     .menu-child {
@@ -68,6 +120,7 @@ export default {
       line-height: 40px;
       border-radius: 6px;
       margin: 4px;
+
       transition: background-color 300ms;
     }
 
@@ -86,10 +139,13 @@ export default {
     }
 
     .is-active {
-      background-color: #e2caf5 // .menu-child-text::before {
-      //   background-color: #8a2be2;
-      // }
+      background-color: #e2caf5 !important
     }
   }
+
+  .menu-child-text {
+    white-space: nowrap;
+  }
+
 }
 </style>

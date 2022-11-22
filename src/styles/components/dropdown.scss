@@ -1,0 +1,84 @@
+@import "../variables.scss";
+@import "../mixin/mixin.scss";
+
+@include c(dropdown){
+  position: relative;
+  display: inline-block;
+}
+
+@include c(dropdown-list){
+  padding: 8px 0;
+  transition:opacity 300ms;
+  position:absolute;
+  background-color: #fff;
+  z-index: 999;
+  box-shadow:0 2px 12px 0 rgb(0 0 0 / 10%);
+  @include when(bottom){
+    &::before{
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      height: 8px;
+      width: 8px;
+      box-shadow:  0 2px 12px 0 rgb(0 0 0 / 10%);
+      top: -4px;
+      left:50%;
+      transform:translate(-50%,0) rotate(-135deg) ;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      height: 6px;
+      width: 100%;
+      top: 0;
+    }
+  }
+  @include when(top){
+    &::before{
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      height: 8px;
+      width: 8px;
+      box-shadow:  0 2px 12px 0 rgb(0 0 0 / 10%);
+      bottom: -4px;
+      left:50%;
+      transform:translate(-50%,0) rotate(-45deg) ;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      height: 6px;
+      width: 100%;
+      bottom: 0;
+    }
+  }
+  @include when(start){
+    &::before{
+      left:20px;
+      transform:rotate(-45deg) ;
+    }
+  }
+
+  @include when(end){
+    &::before{
+      right:20px;
+      transform:rotate(-45deg) ;
+    }
+  }
+}
+
+@include c(dropdown-item){
+  color: $wr-color-black;
+  height: 36px;
+  cursor: pointer;
+  line-height: 36px;
+  padding: 0 24px;
+  transition: background-color 300ms;
+  &:hover{
+    background-color: #e6f0fa;
+    color: $wr-color-primary;
+  }
+}

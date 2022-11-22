@@ -69,10 +69,15 @@
     ,
 {
       path:"/wrui/form",
-      redirect:"/wrui/form/radio",
+      redirect:"/wrui/form/input",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
+      path:"input",
+      component:()=>import('@/docs/input.md')
+    }
+    ,
+{
       path:"radio",
       component:()=>import('@/docs/radio.md')
     }
@@ -88,8 +93,8 @@
     }
     ,
 {
-      path:"input",
-      component:()=>import('@/docs/input.md')
+      path:"dropdown",
+      component:()=>import('@/docs/dropdown.md')
     }
     
       ],
@@ -119,8 +124,8 @@
     }  
     ,
 {
-      path:"/wrui/ohter",
-      redirect:"/wrui/ohter/video",
+      path:"/wrui/others",
+      redirect:"/wrui/others/video",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {

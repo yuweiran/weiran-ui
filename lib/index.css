@@ -856,6 +856,151 @@
   opacity: 0;
 }
 
+.wr-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.wr-dropdown-list {
+  padding: 8px 0;
+  transition: opacity 300ms;
+  position: absolute;
+  background-color: #fff;
+  z-index: 999;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.wr-dropdown-list.is-bottom::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 8px;
+  width: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  top: -4px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(-135deg);
+}
+.wr-dropdown-list.is-bottom::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 6px;
+  width: 100%;
+  top: 0;
+}
+
+.wr-dropdown-list.is-top::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 8px;
+  width: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  bottom: -4px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(-45deg);
+}
+.wr-dropdown-list.is-top::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  height: 6px;
+  width: 100%;
+  bottom: 0;
+}
+
+.wr-dropdown-list.is-start::before {
+  left: 20px;
+  transform: rotate(-45deg);
+}
+
+.wr-dropdown-list.is-end::before {
+  right: 20px;
+  transform: rotate(-45deg);
+}
+
+.wr-dropdown-item {
+  color: #222222;
+  height: 36px;
+  cursor: pointer;
+  line-height: 36px;
+  padding: 0 24px;
+  transition: background-color 300ms;
+}
+.wr-dropdown-item:hover {
+  background-color: #e6f0fa;
+  color: #1989fa;
+}
+
+@keyframes wr-progress-load-animate {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+@keyframes wr-progress-load-animate-zebra {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 12px 0;
+  }
+}
+.wr-jc-sb, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message {
+  justify-content: space-between;
+}
+
+.wr-ai-c, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup, .wr-button {
+  align-items: center;
+}
+
+.wr-flex, .wr-flex-ac, .wr-progress, .wr-flex-ac-jb, .wr-notify-header, .wr-message-alert-header, .wr-message-confirm-header, .wr-message-prompt-header, .wr-message, .wr-flex-ac-jc, .wr-badge-sup {
+  display: flex;
+}
+
+.wr-jc-c, .wr-flex-ac-jc, .wr-button {
+  justify-content: center;
+}
+
+.wr-fd-c {
+  flex-direction: column;
+}
+
+.wr-flex-1 {
+  flex: 1;
+}
+
+.wr-whitespace-nowrap, .wr-button {
+  white-space: nowrap;
+}
+
+.wr-curser-pointer {
+  cursor: pointer;
+}
+
+.wr-full-height {
+  height: 100%;
+}
+
+.wr-overflow-auto {
+  overflow: auto;
+}
+
+.el-notification-fade-enter.right {
+  right: 0;
+  transform: translateX(100%);
+}
+.el-notification-fade-enter.left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.el-notification-fade-leave-active {
+  opacity: 0;
+}
+
 .wr-input, .wr-textarea {
   position: relative;
 }
@@ -1647,6 +1792,52 @@
   color: white;
   background-color: rebeccapurple;
 }
+.wr-slider.is-vertical {
+  display: inline-block;
+  position: relative;
+  width: 10px;
+}
+.wr-slider.is-vertical .wr-slider-loaded {
+  width: 100%;
+  background-color: #07c160;
+  overflow: visible;
+  position: absolute;
+  bottom: 0;
+}
+.wr-slider.is-vertical .wr-slider-loaded .wr-slider-button {
+  position: absolute;
+  right: auto;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.wr-slider.is-vertical .wr-slider-loaded .wr-slider-button .wr-slider-tooltip {
+  position: absolute;
+  padding: 4px;
+  top: -28px;
+  left: 50%;
+  font-size: 12px;
+  transform: translate(-50%, 0);
+  color: white;
+  background-color: rebeccapurple;
+}
+.wr-slider.is-vertical .wr-slider-loaded .wr-slider-button .wr-slider-inner-btn {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 1px solid #07c160;
+  background-color: white;
+  cursor: grab;
+}
+.wr-slider.is-vertical .wr-slider-loaded .wr-slider-loader-tooltip {
+  position: absolute;
+  padding: 4px;
+  font-size: 12px;
+  top: -28px;
+  transform: translate(-50%, 0);
+  color: white;
+  background-color: rebeccapurple;
+}
 
 @keyframes wr-progress-load-animate {
   from {
@@ -1739,7 +1930,10 @@
 
 .wr-tree-node {
   padding-left: 16px;
+  user-select: none;
   cursor: pointer;
+  transition: height 200ms;
+  -webkit-tap-highlight-color: transparent;
 }
 .wr-tree-node .wr-tree-expand {
   height: 28px;

@@ -1,7 +1,9 @@
 @include c(tree-node){
-  padding-left: 16px;
+  padding-left: 16px; 
+  user-select: none;
   cursor: pointer;
-
+  transition: height 200ms;
+  -webkit-tap-highlight-color: transparent;
 
   .wr-tree-expand{
     height: 28px;

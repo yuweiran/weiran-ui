@@ -64,7 +64,7 @@ ComponentNames.forEach(name => {
     }));
   }
 
-  if (componentName !== 'Loading') listTemplate.push(`  ${componentName}`);
+  if (componentName !== 'Loading') listTemplate.push(`${componentName}`);
 });
 
 var template = render(MAIN_TEMPLATE, {

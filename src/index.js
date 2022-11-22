@@ -8,6 +8,8 @@ import Container from '../packages/container/index.js';
 import Drag from '../packages/drag/index.js';
 import DragItem from '../packages/drag-item/index.js';
 import Dropdown from '../packages/dropdown/index.js';
+import DropdownItem from '../packages/dropdown-item/index.js';
+import DropdownMenu from '../packages/dropdown-menu/index.js';
 import Input from '../packages/input/index.js';
 import Message from '../packages/message/index.js';
 import MessageBox from '../packages/message-box/index.js';
@@ -29,6 +31,8 @@ const components = [
   Drag,
   DragItem,
   Dropdown,
+  DropdownItem,
+  DropdownMenu,
   Input,
   Progress,
   Radio,

@@ -6,7 +6,7 @@
 :::demo
 ```html
   <template>
-      <wr-slider :step='20'></wr-slider>
+      <wr-slider ></wr-slider>
   </template>
 ```
 :::
@@ -62,6 +62,23 @@
 ```
 :::
 
+### 竖直方向
+:::demo
+```html
+  <template>
+    <wr-slider vertical></wr-slider>
+  </template>
+    <script>
+    export default {
+      data(){
+        return {
+          sliderValue:20
+        }
+      }
+    }
+  </script>
+```
+:::
 
 ### 属性
 

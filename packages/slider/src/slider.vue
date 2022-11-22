@@ -1,7 +1,8 @@
 <template>
-  <div @click="handleChangeSliderState" :style="{height:height?height+'px':'8px'}" @mouseleave="handleSliderLeave"
-    @mousemove="handleSliderHover" class="wr-slider" ref="slider">
-    <div class="wr-slider-loaded" :style="{ width: currentValue + '%' }">
+  <div @click="handleChangeSliderState" :style="{height: height?height+'px':vertical?'100px':'8px'}"
+    @mouseleave="handleSliderLeave" @mousemove="handleSliderHover" :class="{'wr-slider':true,'is-vertical':vertical}"
+    ref="slider">
+    <div class="wr-slider-loaded" :style="[!vertical ? { width: currentValue + '%' } : { height: currentValue + '%' }]">
       <div class="wr-slider-button" @mouseleave="handleControllerLeave" @mouseover="handleControllerOver"
         @mousedown.prevent.stop="handleControlBtn" @mousemove.prevent.stop="" @click.prevent.stop="">
         <slot>
@@ -11,9 +12,9 @@
           {{ toolTipValue }}
         </div>
       </div>
-      <div v-if="firstRenderSliderloader" v-show="!controllerMousedown && isloaderHover" :style="{
-        left: loadToolTipLeft + 'px'
-      }" class="wr-slider-loader-tooltip">
+      <div v-if="(firstRenderSliderloader && !vertical)" v-show="!controllerMousedown && isloaderHover"
+        :style="[!vertical ? { left: loadToolTipLeft + 'px' } : { top: loadToolTipLeft + 'px' }]"
+        class="wr-slider-loader-tooltip">
         {{ loadToolTipValue }}
       </div>
     </div>
@@ -39,6 +40,15 @@ export default {
     value: {
       type: Number
     },
+    autoChange: {
+      type: Boolean,
+      default: true
+    },
+    vertical: {
+      type: Boolean,
+      default: false
+    }
+
   },
   data() {
     return {
@@ -71,17 +81,23 @@ export default {
       this.firstRenderSliderBtn = true
     },
     handleSliderHover(e) {
+      let DOMRect = this.$refs.slider.getBoundingClientRect()
       this.loadToolTipLeft = e.offsetX
+      if (this.vertical) {
+        this.loadToolTipLeft = e.offsetY
+      }
       this.firstRenderSliderloader = true
       this.isloaderHover = true
-      let width = this.$refs.slider.clientWidth
-      this.calculateProcess({ current: e.offsetX, width, setLoadToolTip: true, setToolTip: true })
+      let width = this.vertical ? DOMRect.height : DOMRect.width
+      this.calculateProcess({ current: this.vertical ? e.offsetY : e.offsetX, width, setLoadToolTip: true, setToolTip: true })
     },
     handleChangeSliderState(e) {
       if (!this.isControlled) {
-        let width = this.$refs.slider.clientWidth
-        this.calculateProcess({ current: e.offsetX, width, emitInput: true, emitChange: true })
-
+        let DOMRect = this.$refs.slider.getBoundingClientRect()
+        this.controllerMousedown = true
+        let width = this.vertical ? DOMRect.height : DOMRect.width
+        this.currentValue = this.calculateProcess({ current: this.vertical ? width - e.offsetY : e.offsetX, width, emitInput: true, emitChange: true })
+        this.controllerMousedown = false
       }
     },
 
@@ -90,18 +106,19 @@ export default {
 
       let DOMRect = this.$refs.slider.getBoundingClientRect()
       let left = DOMRect.left//距离屏幕左侧距离
+      let top = DOMRect.top//距离屏幕上方距离
       this.controllerMousedown = true
-      let width = this.$refs.slider.clientWidth
+      let width = this.vertical ? DOMRect.height : DOMRect.width
       window.document.onmousemove = (e) => {
-        let v = e.clientX - left
-        let target = 0
+        let v = this.vertical ? e.clientY - top : e.clientX - left
+        let target = this.vertical ? width : 0
         if (v >= width) {
-          target = width
+          target = this.vertical ? 0 : width
         } else if (v > 0) {
-          target = v
+          target = this.vertical ? width - v : v
         }
         //得到百分比
-        this.currentValue = this.calculateProcess({ current: target, width, emitInput: true, setToolTip: true })
+        this.currentValue = this.calculateProcess({ current: target, width, emitInput: this.autoChange, setToolTip: true })
       }
       window.document.onmouseup = this.clearControlEvent
       this.$refs.slider.onmouseup = this.clearControlEvent
@@ -159,7 +176,8 @@ export default {
         if (val) {
           if (!this.controllerMousedown) {
             this.$nextTick(() => {
-              let width = this.$refs.slider.clientWidth
+              let DOMRect = this.$refs.slider.getBoundingClientRect()
+              let width = this.vertical ? DOMRect.height : DOMRect.width
               let target = this.calculateProcess({
                 realvalue: val,
                 width,

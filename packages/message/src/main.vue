@@ -1,20 +1,12 @@
 <template>
-  <transition
-    appear
-    :enter-active-class="`animate__animated ${animateInClass}`"
-    :leave-active-class="`animate__animated ${animateOutClass}`"
-    @after-leave="destroyEl"
-  >
+  <transition appear :enter-active-class="`animate__animated ${animateInClass}`"
+    :leave-active-class="`animate__animated ${animateOutClass}`" @after-leave="destroyEl">
     <div v-show="visible" :class="['wr-message', type ? `is-${type}` : '']">
       <div class="wr-message-content">
         {{ text }}
       </div>
       <div v-if="showClose">
-        <span
-          @click="close"
-          style="font-size: 16px; font-weight: bold"
-          class="wr-icon-remove"
-        ></span>
+        <span @click="close" style="font-size: 13px; font-weight: bold" class="wr-icon-remove"></span>
       </div>
     </div>
   </transition>

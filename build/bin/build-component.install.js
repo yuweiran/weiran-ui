@@ -11,8 +11,6 @@ export default {{upperName}};
 
 const INSTALL_TEMPLATE =`
 import {{upperName}} from './src/{{componetName}}';
-
-/* istanbul ignore next */
 {{upperName}}.install = function(Vue) {
   Vue.component({{upperName}}.name, {{upperName}});
 };
@@ -23,7 +21,7 @@ const COMPONENTS_DEFINE_PATH  = path.join(__dirname,'../../packages/')
 
 fs.readdir(COMPONENTS_DEFINE_PATH,{encoding:'utf-8'},(err,files)=>{
   files.forEach(item=>{
-    let excludeComponents=['checkbox-group','drag']
+    let excludeComponents=['checkbox-group','drag',"dropdown-item","dropdown-menu"]
     //这里面组件手写install文件
     if(excludeComponents.indexOf(item)===-1){
       const srcPath = path.join(COMPONENTS_DEFINE_PATH,`./${item}/src/`)

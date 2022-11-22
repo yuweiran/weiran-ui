@@ -1,14 +1,10 @@
 <template>
-  <transition
-    appear
-    :enter-active-class="`animate__animated ${animateInClass}`"
-    :leave-active-class="`animate__animated ${animateOutClass}`"
-    @after-leave="destroyEl"
-  >
+  <transition appear :enter-active-class="`animate__animated ${animateInClass}`"
+    :leave-active-class="`animate__animated ${animateOutClass}`" @after-leave="destroyEl">
     <div v-show="visible" :class="['wr-notify', `wr-notify-${position}`]">
       <div class="wr-notify-header">
         <div>{{ title || '提示' }}</div>
-        <div><span @click="close" class="wr-icon-remove"></span></div>
+        <div><span @click="close" style="font-size: 13px;" class="wr-icon-remove"></span></div>
       </div>
       <div>
         {{ text }}

@@ -2,6 +2,10 @@
   "group": "form",
   "children": [
     {
+      "path": "/input",
+      "name": "输入框"
+    },
+    {
       "path": "/radio",
       "name": "单选框"
     },
@@ -14,8 +18,8 @@
       "name": "选择器"
     },
     {
-      "path": "/input",
-      "name": "输入框"
+      "path": "/dropdown",
+      "name": "下拉菜单"
     }
   ]
 }

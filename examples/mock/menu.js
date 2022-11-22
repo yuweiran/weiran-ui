@@ -58,6 +58,11 @@
       path:"/wrui/form",
       children:[
         {
+      path:"input",
+      text:"Input    输入框"
+    }
+    ,
+{
       path:"radio",
       text:"Radio    单选框"
     }
@@ -73,8 +78,8 @@
     }
     ,
 {
-      path:"input",
-      text:"Input    输入框"
+      path:"dropdown",
+      text:"Dropdown    下拉菜单"
     }
     
       ],
@@ -104,7 +109,7 @@
     }  
     ,
 {
-      path:"/wrui/ohter",
+      path:"/wrui/others",
       children:[
         {
       path:"video",
@@ -112,7 +117,7 @@
     }
     
       ],
-      text:"ohter"
+      text:"others"
     }  
     
     ]
