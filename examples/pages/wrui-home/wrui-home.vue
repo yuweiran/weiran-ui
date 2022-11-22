@@ -4,29 +4,13 @@
       <HomeHeader ref="header" @hiddenLeft="handleAsideHidden" />
     </div>
     <div class="page-body">
-      <div class="page-aside" :style="{ width: asideWidth + 'px' }">
-        <HomeAside v-if="!hiddenAside" :mini="isMini" @scrolltop="handleMdContentToTop" />
+      <div class="page-aside" v-show="!hiddenAside" :style="{ width: asideWidth + 'px' }">
+        <HomeAside :mini="isMini" @scrolltop="handleMdContentToTop" />
       </div>
       <div class="page-main">
         <HomeMain id="mdFileShow" />
       </div>
     </div>
-    <!-- <wr-container type="header-main" header-height="64">
-      <template #header>
-        <HomeHeader ref="header" @hiddenLeft="handleAsideHidden" />
-      </template>
-      <template #main>
-        <wr-container v-if="!hiddenAside" :aside-width="asideWidth" type="aside-main">
-          <template #aside>
-            <HomeAside :mini="isMini" @scrolltop="handleMdContentToTop" />
-          </template>
-          <template #main>
-            <HomeMain id="mdFileShow" />
-          </template>
-        </wr-container>
-        <HomeMain v-if="hiddenAside" id="mdFileShow2" />
-      </template>
-    </wr-container> -->
   </div>
 </template>
 
@@ -100,7 +84,7 @@ export default {
     display: flex;
     flex-direction: row;
     flex: 1;
-    overflow: auto;
+    overflow: hidden;
 
     .page-aside {
       overflow: visible;
@@ -108,7 +92,7 @@ export default {
 
     .page-main {
       flex: 1;
-      overflow: auto;
+      overflow-y: auto;
     }
   }
 }

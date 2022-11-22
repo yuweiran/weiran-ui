@@ -2,12 +2,12 @@
   <div class="menu-container">
     <div class="c-pointer menu-group" v-for="(group, index) in menu" :key="index">
       <div class="menu-group-name f-ac" @click.prevent.stop="groupNodeClick(group)">
-        <img style="height: 22px; width: 22px;margin-right: 10px;"
+        <img :ref="group.text" style="height: 22px; width: 22px;margin-right: 10px;"
           :src="require(`../../assets/images/${group.text}.svg`)" alt="" srcset="">
         {{ !mini ? group.text : '' }}
       </div>
       <div :class="[mini ? 'is-mini' : '']" v-show="!mini ? true : group.text === activeGroup"
-        :style="{ 'background-color': 'white' }">
+        :style="mini ? { top: domPosition.top + 'px', left: domPosition.left + 'px' } : ''">
         <div :class="['menu-child', active === child.path ? 'is-active' : '']" v-for="(child, childI) in group.children"
           :key="childI" @click.prevent.stop="nodeClick(group.path + '/' + child.path, child.path)">
           <span class="menu-child-text">{{ child.text }}</span>
@@ -24,7 +24,11 @@ export default {
     return {
       menu: menuData,
       active: '',
-      activeGroup: ''
+      activeGroup: '',
+      domPosition: {
+        top: 0,
+        left: 0
+      }
     }
   },
   props: {
@@ -51,11 +55,19 @@ export default {
         }
         this.setActivePath(group.children[0].path)
       } else {
-        if (this.activeGroup === group.text) {
-          this.activeGroup = ""
-        } else {
-          this.activeGroup = group.text
-        }
+        this.$nextTick(() => {
+          let rectDom = this.$refs[group.text][0].getBoundingClientRect()
+          if (this.activeGroup === group.text) {
+            this.activeGroup = ""
+          } else {
+            this.activeGroup = group.text
+            this.domPosition = {
+              top: rectDom.top,
+              left: rectDom.left + rectDom.width + 10,
+            }
+          }
+        })
+
       }
     },
     setActivePath(path) {
@@ -91,14 +103,14 @@ export default {
 <style lang="scss" scoped>
 .menu-container {
   border-right: 1px solid #54545434;
-  overflow: visible;
+  height: 100%;
+  overflow: auto;
 
   .menu-group {
     font-size: 14px;
     overflow: visible;
     color: rgba(0, 0, 0, .88);
     -webkit-tap-highlight-color: transparent;
-    position: relative;
 
     .is-mini {
       position: absolute;
@@ -107,6 +119,7 @@ export default {
       left: 72px;
       z-index: 99999;
       border-radius: 4px;
+      background-color: #ffffff;
 
       .menu-child {
         position: relative;
