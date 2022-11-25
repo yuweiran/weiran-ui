@@ -23,6 +23,9 @@ export default {
       location.href = '/'
     },
   },
+  mounted() {
+    sessionStorage.removeItem('activeComponent')
+  }
 }
 </script>
 
@@ -35,6 +38,7 @@ export default {
   height: 100%;
   width: 100%;
 }
+
 .err-info-box {
   background-color: white;
   height: 100%;
@@ -44,33 +48,40 @@ export default {
   color: blueviolet;
   border-radius: 10px;
 }
-.err-info-box > div {
+
+.err-info-box>div {
   margin-bottom: 48px;
   text-align: right;
 }
-.err-info-box > div :last-child {
+
+.err-info-box>div :last-child {
   margin-bottom: 0;
 }
+
 .err-info-box .btn-404 {
   color: white;
   background-color: blueviolet;
+
   &:hover {
     background-color: rgb(155, 50, 254);
   }
 }
+
 .err-info {
   background-color: rgb(247, 247, 247);
   width: 100%;
   height: 200px;
   display: flex;
 }
-.err-info > div {
+
+.err-info>div {
   flex: 1;
   display: flex;
   font-size: 30px;
   justify-content: center;
   align-items: center;
 }
+
 .err-info-separate {
   height: 30px;
   width: 1px;

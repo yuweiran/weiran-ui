@@ -4,7 +4,8 @@
     ref="slider">
     <div class="wr-slider-loaded" :style="[!vertical ? { width: currentValue + '%' } : { height: currentValue + '%' }]">
       <div class="wr-slider-button" @mouseleave="handleControllerLeave" @mouseover="handleControllerOver"
-        @mousedown.prevent.stop="handleControlBtn" @mousemove.prevent.stop="" @click.prevent.stop="">
+        @mousedown.prevent.stop="handleControlBtn" @touchstart="handleControlBtn" @mousemove.prevent.stop=""
+        @click.prevent.stop="">
         <slot>
           <div class="wr-slider-inner-btn"></div>
         </slot>
@@ -100,28 +101,34 @@ export default {
         this.controllerMousedown = false
       }
     },
-
-    handleControlBtn() {
-      //这个方法第一次用
-
+    onDragging(e) {
       let DOMRect = this.$refs.slider.getBoundingClientRect()
       let left = DOMRect.left//距离屏幕左侧距离
       let top = DOMRect.top//距离屏幕上方距离
       this.controllerMousedown = true
       let width = this.vertical ? DOMRect.height : DOMRect.width
-      window.document.onmousemove = (e) => {
-        let v = this.vertical ? e.clientY - top : e.clientX - left
-        let target = this.vertical ? width : 0
-        if (v >= width) {
-          target = this.vertical ? 0 : width
-        } else if (v > 0) {
-          target = this.vertical ? width - v : v
-        }
-        //得到百分比
-        this.currentValue = this.calculateProcess({ current: target, width, emitInput: this.autoChange, setToolTip: true })
+      if (['touchstart', 'touchmove'].indexOf(e.type) !== -1) {
+        e.clientY = e.touches[0].clientY;
+        e.clientX = e.touches[0].clientX;
       }
-      window.document.onmouseup = this.clearControlEvent
-      this.$refs.slider.onmouseup = this.clearControlEvent
+
+      let v = this.vertical ? e.clientY - top : e.clientX - left
+      let target = this.vertical ? width : 0
+      if (v >= width) {
+        target = this.vertical ? 0 : width
+      } else if (v > 0) {
+        target = this.vertical ? width - v : v
+      }
+      //得到百分比
+      this.currentValue = this.calculateProcess({ current: target, width, emitInput: this.autoChange, setToolTip: true })
+    },
+    handleControlBtn() {
+      //这个方法第一次用
+      window.addEventListener('mousemove', this.onDragging);
+      window.addEventListener('touchmove', this.onDragging);
+      window.addEventListener('mouseup', this.clearControlEvent);
+      window.addEventListener('touchend', this.clearControlEvent);
+      window.addEventListener('contextmenu', this.clearControlEvent);
     },
     //计算进度
     calculateProcess({ current, width, realvalue, setToolTip = false, setLoadToolTip = false, emitInput = false, emitChange = false }) {
@@ -163,9 +170,11 @@ export default {
     },
     //清空事件
     clearControlEvent() {
-      window.document.onmousemove = null
-      this.$refs.slider.onmousemove = null
-      window.document.onmouseup = null
+      window.removeEventListener('mousemove', this.onDragging);
+      window.removeEventListener('touchmove', this.onDragging);
+      window.removeEventListener('mouseup', this.clearControlEvent);
+      window.removeEventListener('touchend', this.clearControlEvent);
+      window.removeEventListener('contextmenu', this.clearControlEvent);
       this.isControlled = false
       this.controllerMousedown = false
     }

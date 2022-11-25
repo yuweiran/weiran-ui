@@ -82,7 +82,6 @@ export default {
 
   .page-body {
     display: flex;
-    flex-direction: row;
     flex: 1;
     overflow: hidden;
 

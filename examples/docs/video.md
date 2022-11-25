@@ -4,13 +4,13 @@
 :::demo
   ```html
     <template>
-      <wr-video  style="width:800px" :sources="sources"></wr-video>
+      <wr-video  style="width:400px" :sources="sources"></wr-video>
     </template>
     <script>
     export default {
       data(){
         return {
-          sources: ['../../../video/music.mp4']
+          sources: ['http://yuweiran.cn:9074/music.mp4']
         }
       }
     }

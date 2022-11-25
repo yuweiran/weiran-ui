@@ -107,18 +107,6 @@
       ],
       text:"notice"
     }  
-    ,
-{
-      path:"/wrui/others",
-      children:[
-        {
-      path:"video",
-      text:"Video    视频"
-    }
-    
-      ],
-      text:"others"
-    }  
     
     ]
     export default  menuData

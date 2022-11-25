@@ -122,19 +122,6 @@
     
       ],
     }  
-    ,
-{
-      path:"/wrui/others",
-      redirect:"/wrui/others/video",
-      component:()=>import("@/components/wrui-middle-router.vue"),
-      children:[
-        {
-      path:"video",
-      component:()=>import('@/docs/video.md')
-    }
-    
-      ],
-    }  
     
         ]
       },

@@ -1,14 +1,15 @@
 <template>
   <div ref="videoPlayer" class="wr-video" @mouseover="showMask = true" @mouseleave="showMask = false">
-    <video ref="weiranVideo" @abort="handleAbort" @canplay="handleCanplay" @canplaythrough="handleCanplayThrough"
-      @durationchange="handleDurationchange" @emptied="handleEmptied" @ended="handleEnded" @error="handleError"
-      @loadeddata="handleLoadedData" @loadedmetadata="handleLoadedMetaData" @loadstart="handleLoadedStart"
-      @pause="handlePause" @play="handlePlay" @playing="handlePlaying" @progress="handleProgress"
-      @ratechange="handleRatechange" @seeked="handleSeeked" @seeking="handleSeeking" @stalled="handleStalled"
-      @suspend="handleSuspend" @timeupdate="handleTimeupdate" @volumechange="handleVolumechange"
-      @waiting="handleWaiting" class="wr-video_inner">
+    <video ref="weiranVideo" style="display: none;" @abort="handleAbort" @canplay="handleCanplay"
+      @canplaythrough="handleCanplayThrough" @durationchange="handleDurationchange" @emptied="handleEmptied"
+      @ended="handleEnded" @error="handleError" @loadeddata="handleLoadedData" @loadedmetadata="handleLoadedMetaData"
+      @loadstart="handleLoadedStart" @pause="handlePause" @play="handlePlay" @playing="handlePlaying"
+      @progress="handleProgress" @ratechange="handleRatechange" @seeked="handleSeeked" @seeking="handleSeeking"
+      @stalled="handleStalled" @suspend="handleSuspend" @timeupdate="handleTimeupdate"
+      @volumechange="handleVolumechange" @waiting="handleWaiting">
       <source v-for="video in sourcesList" :key="video.src" :src="video.src" :type="video.type" />
     </video>
+    <canvas ref="wrVideoCanvas" :height="canvasHeight" :width="canvasWidth" class="wr-video_inner"></canvas>
     <div v-show="showMask" class="wr-video-mask">
       <div class="wr-video-mask-header">
         <div>
@@ -85,6 +86,8 @@ export default {
   },
   data() {
     return {
+      canvasHeight: 400,
+      canvasWidth: 800,
       showMask: false,
       isPlaying: false,
       player: null,
@@ -121,6 +124,10 @@ export default {
     }
   },
   methods: {
+    render() {
+      this.ctx.drawImage(this.$refs.weiranVideo, 0, 0, this.canvasWidth, this.canvasHeight);
+      requestAnimationFrame(this.render);
+    },
     handleSetRate(rate) {
       if (this.$refs.weiranVideo) {
         this.$refs.weiranVideo.playbackRate = rate;
@@ -132,9 +139,11 @@ export default {
       this.isPlaying = state
       if (state) {
         player.play()
+        this.render();
       } else {
         player.pause()
       }
+
     },
     handleSetVideoFullScreen() {
       if (this.isFullScreen) {
@@ -142,7 +151,11 @@ export default {
         this.isFullScreen = false
         return
       }
+
       this.launchFullscreen(this.$refs.videoPlayer)
+      this.$nextTick(() => {
+        this.updateCanvasRect()
+      })
       this.isFullScreen = true
     },
     handleChangeProcess(val) {
@@ -181,7 +194,6 @@ export default {
     },
     handleError() {
       this.isPlaying = false
-
     },
     handleLoadedData() {
       console.log("已加载当前帧handleLoadedData");
@@ -245,32 +257,27 @@ export default {
     },
     //事件监听
     handleScreenEvent() {
+
       if (document.fullscreenElement) {
         this.isFullScreen = true
       } else {
         this.isFullScreen = false
       }
+      this.$nextTick(() => {
+        this.updateCanvasRect()
+      })
     },
+    updateCanvasRect() {
+      const playerRect = this.$refs.videoPlayer.getBoundingClientRect()
+      this.canvasWidth = playerRect.width
+      this.canvasHeight = playerRect.height
+    }
   },
   created() { },
   mounted() {
-    let videoPlayer = this.$refs.weiranVideo;
-    // setInterval(() => {
-    //   let buffer = videoPlayer.buffered;
-    //   let start = videoPlayer.buffered.start(0);
-    //   let end = videoPlayer.buffered.end(0);
-    //   console.log(buffer, start, end);
-    // }, 1000);
-    setTimeout(() => {
-      console.log(videoPlayer.buffered); //视频
-      console.log(videoPlayer.currentSrc); //播放源地址
-      console.log(videoPlayer.duration); //视频长度
-      console.log(videoPlayer.seeking); //
-      console.dir(videoPlayer.volume)
-    }, 1000);
-    // videoPlayer.currentTime = 66; //设置视频当前时间、位置
-    // videoPlayer.playbackRate = 1.25; //设置视频播放速度
-    // videoPlayer.volume = 0.8; //音量大小，0-1
+    this.updateCanvasRect()
+    const container = this.$refs.wrVideoCanvas
+    this.ctx = container.getContext("2d");
     document.addEventListener("fullscreenchange", this.handleScreenEvent)
   },
   watch: {

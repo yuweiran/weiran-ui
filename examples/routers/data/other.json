@@ -1,9 +1,1 @@
-{
-  "group": "others",
-  "children": [
-    {
-      "path": "/video",
-      "name": "视频"
-    }
-  ]
-}
+{}
