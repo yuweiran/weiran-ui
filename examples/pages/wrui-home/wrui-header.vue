@@ -8,7 +8,7 @@
         <span class="position-relative" style="font-size:18px ;color:#5c5c66">weiran-UI</span>
       </div>
     </div>
-    <div class="full-height f-ac-jc c-pointer">
+    <div class="full-height f-ac-jc  c-pointer" style="-webkit-tap-highlight-color: transparent;">
       <div :class="[item.name === activePath ? 'is-active' : '', 'nav-link']" @click="routeChangeTo(item)"
         v-for="item in navList" :key="item.id">
         {{ item.name }}
