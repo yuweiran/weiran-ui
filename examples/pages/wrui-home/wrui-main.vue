@@ -3,7 +3,7 @@
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
-    <div style="padding: 30px"></div>
+    <div style="padding: 20px"></div>
   </div>
 </template>
 
