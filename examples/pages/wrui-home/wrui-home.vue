@@ -100,7 +100,5 @@ export default {
   .menu-container {
     width: 80px;
   }
-
-
 }
 </style>

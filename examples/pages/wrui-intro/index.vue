@@ -1,8 +1,8 @@
 <template>
-  <div style="display: grid;padding:0 200px;">
-    <div style="margin:0 auto;display: flex;height:640px">
-      <img style="width:400px ;" src="@/assets/images/logo.svg" alt="logo" />
-      <div style="width:400px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+  <div class="home-container">
+    <div class="home-header">
+      <img style="width:50%;" src="@/assets/images/logo.svg" alt="logo" />
+      <div class="home-title">
         <h1>WR-UI</h1>
         <p>个人独立设计开发的一套基于vue2的桌面端基础组件库</p>
       </div>
@@ -16,14 +16,11 @@
           </p>
         </div>
       </div>
-      <div>
+      <div style="padding:10px 10px">
         <img style="width:100%;height:100%" src="../../assets/jpg/page.jpg" alt="" srcset="">
       </div>
     </div>
-    <div class="section">
-      <div>
-        <img style="width:100%;height:100%" src="../../assets/jpg/pic.jpg" alt="" srcset="">
-      </div>
+    <div class="section flex-reserve">
       <div style="padding:0 20px">
         <h2 style="color: #303F5B;">项目简介</h2>
         <p>
@@ -36,9 +33,12 @@
           可能还会持续更新，随着后续个人知识与技能的积累，会对组件库进行后续升级优化
         </p>
       </div>
+      <div style="padding:10px 10px">
+        <img style="width:100%;height:100%" src="../../assets/jpg/pic.jpg" alt="" srcset="">
+      </div>
     </div>
     <div class="section-author">
-      <h2 style="color: #303F5B;">关于我</h2>
+      <h2 style="color: #303F5B; padding: 0 20px;">关于我</h2>
       <div style="display: grid;place-content: center;">
         <div style="height:130px;width: 130px;overflow: hidden;border-radius: 50%;">
           <img style="height: 100%;width: 100%;" src="../../assets/jpg/headicon.jpg" alt="" srcset="">
@@ -72,6 +72,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-container {
+  display: grid;
+  padding: 0 200px;
+
+  .home-header {
+    margin: 0 auto;
+    display: flex;
+    height: 640px;
+
+    .home-title {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center
+    }
+
+  }
+
+
+}
+
 .section {
   border-radius: 4px;
   display: flex;
@@ -90,6 +112,7 @@ export default {
 
 .section-author {
   margin: 20px 0;
+
 
   .info-container {
     padding: 0 20px;
@@ -115,6 +138,33 @@ export default {
         display: flex;
         place-content: center;
       }
+    }
+  }
+}
+
+.flex-reserve {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width:800px) {
+  .home-container {
+    padding: 20px 0;
+
+    .home-header {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+    }
+  }
+
+  .section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .section-author {
+    .info-container {
+      grid-template-columns: 1fr
     }
   }
 }
