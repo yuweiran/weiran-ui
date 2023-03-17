@@ -20,13 +20,10 @@
 export default {
   name: 'wrProgress',
   props: {
-    percent: {
+    value: {
       type: [Number, String],
       default() {
         return 0
-      },
-      validator(val) {
-        return val >= 0
       },
     },
     total: {
@@ -64,7 +61,7 @@ export default {
   },
   computed: {
     progressValue() {
-      let percent = parseFloat(this.percent)
+      let percent = parseFloat(this.value)
       let total = parseFloat(this.total)
       if (percent >= total) {
         return 100
@@ -73,7 +70,7 @@ export default {
       }
     },
     currentCustomColor() {
-      let percent = parseFloat(this.percent)
+      let percent = parseFloat(this.value)
       if (percent > this.total) percent = this.total
       let isArr = Array.isArray(this.customColor)
       if (isArr) {
@@ -115,6 +112,15 @@ export default {
   methods: {
     handleProgressClick(e) {
       console.log(e.layerX)
+    }
+  },
+  watch: {
+    value(val) {
+      if (val > this.total) {
+        this.$emit('input', this.total)
+      } else if (val < 0) {
+        this.$emit('input', 0)
+      }
     }
   }
 }

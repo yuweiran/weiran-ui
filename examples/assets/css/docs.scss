@@ -1,9 +1,9 @@
 @import "./common.scss";
 $demo-color-blue:#4d9dff;
 $demo-color-red:#ff5454;
-$demo-color-purple:#953dff;
-$demo-color-purple-1:#953dff94;
-$demo-color-purple-2:#943ffdcc;
+$demo-color-gray:#c0c0c0;
+$demo-color-gray-1:#919191;
+$demo-color-gray-2:#3d3d3dcc;
 $demo-color-green:#54ff91;
 
 .wrui-container {
@@ -44,13 +44,13 @@ $demo-color-green:#54ff91;
     color: white;
   }
   .color-aa{
-    background-color:$demo-color-purple-1;
+    background-color:$demo-color-gray-1;
   }
   .color-bb{
-    background-color:$demo-color-purple;
+    background-color:$demo-color-gray;
   }
   .color-cc{
-    background-color:$demo-color-purple-2;
+    background-color:$demo-color-gray-2;
   }
 
 

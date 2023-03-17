@@ -11,13 +11,12 @@
     <i class="wr-icon-delete"></i>
   </div>
 </template>
-
 ```
 :::
 
 ### 图标列表
 <div class="wr-icon-container">
-  <div class="wr-icon-item--show" v-for="icon in $icons" :key="icon">
+  <div class="wr-icon-item--show" v-for="icon in $icons" @click ="copyToClipboard(icon)"  :key="icon">
     <div :class="['wr-icon-item',icon]"></div>
     <div class="wr-icon-text">{{icon}}</div>
   </div>

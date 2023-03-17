@@ -3,17 +3,21 @@
       {path: "/", redirect: "/wrui"},
       {
         path:"/wrui",
-        redirect: '/wrui/guide',
+        redirect: '/wrui/introduce',
         component:()=>import("@/pages/wrui-home/wrui-home"),
         children:[
+          {
+            path:"/wrui/introduce",
+            component:()=>import("@/pages/wrui-intro/index.vue")
+          },
           {
             path:"/wrui/guide",
             component:()=>import("@/docs/guide.md")
           }
           ,
           {
-      path:"/wrui/basic",
-      redirect:"/wrui/basic/button",
+      path:"/wrui/components/basic",
+      redirect:"/wrui/components/basic/button",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
@@ -35,8 +39,8 @@
     }  
     ,
 {
-      path:"/wrui/data",
-      redirect:"/wrui/data/tree",
+      path:"/wrui/components/data",
+      redirect:"/wrui/components/data/tree",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
@@ -68,8 +72,8 @@
     }  
     ,
 {
-      path:"/wrui/form",
-      redirect:"/wrui/form/input",
+      path:"/wrui/components/form",
+      redirect:"/wrui/components/form/input",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {
@@ -101,8 +105,8 @@
     }  
     ,
 {
-      path:"/wrui/notice",
-      redirect:"/wrui/notice/message-box",
+      path:"/wrui/components/notice",
+      redirect:"/wrui/components/notice/message-box",
       component:()=>import("@/components/wrui-middle-router.vue"),
       children:[
         {

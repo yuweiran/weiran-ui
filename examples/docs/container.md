@@ -21,10 +21,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#953dff94
+      background-color:#919191
     }
     .color-cc{
-      background-color:#953dffcc
+      background-color:#3d3d3dcc
     }
   </style>
 :::
@@ -50,10 +50,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#953dff94
+      background-color#919191
     }
     .color-cc{
-      background-color:#953dffcc
+      background-color:#3d3d3dcc
     }
   </style>
 :::
@@ -86,10 +86,10 @@
       color: white;
     }
     .color-aa{
-      background-color:#953dff94
+      background-color:#919191
     }
     .color-cc{
-      background-color:#953dffcc
+      background-color:#3d3d3dcc
     }
   </style>
 :::
@@ -158,13 +158,13 @@
       color: white;
     }
     .color-aa{
-      background-color:#953dff94
+      background-color:#919191
     }
     .color-bb{
-      background-color:#953dff
+      background-color:#c0c0c0
     }
     .color-cc{
-      background-color:#953dffcc
+      background-color:#3d3d3dcc
     }
   </style>
 :::

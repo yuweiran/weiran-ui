@@ -3,9 +3,9 @@
 :::demo
 ```html
   <template>
-    <wr-progress :percent='percent'></wr-progress>
-    <wr-progress percent='50'></wr-progress>
-    <wr-progress :hidden-percent='true' percent='1' total='3'></wr-progress>
+    <wr-progress v-model='percent'></wr-progress>
+    <wr-progress value='50'></wr-progress>
+    <wr-progress :hidden-percent='true' value='1' total='3'></wr-progress>
     <wr-button @click='percent+=20'>percent+20</wr-button>
     <wr-button @click='percent-=20'>percent-20</wr-button>
   </template>
@@ -26,8 +26,8 @@
 :::demo
 ```html
   <template>
-    <wr-progress percent='50' stripe-type='line'></wr-progress>
-    <wr-progress  percent='70' stripe-type='zebra'></wr-progress>
+    <wr-progress value='50' stripe-type='line'></wr-progress>
+    <wr-progress  value='70' stripe-type='zebra'></wr-progress>
   </template>
   <script>
   export default {
@@ -43,9 +43,9 @@
 :::demo
 ```html
   <template>
-    <wr-progress percent='50' status="exception"></wr-progress>
-    <wr-progress  percent='70' status="warning"></wr-progress>
-    <wr-progress  percent='100' status="success"></wr-progress>
+    <wr-progress value='50' status="exception"></wr-progress>
+    <wr-progress  value='70' status="warning"></wr-progress>
+    <wr-progress  value='100' status="success"></wr-progress>
   </template>
   <script>
   export default {
@@ -61,9 +61,9 @@
 :::demo
 ```html
   <template>
-    <wr-progress percent='50' custom-color="#ffee00"></wr-progress>
-    <wr-progress :percent='percent' :custom-color="colorOption"></wr-progress>
-    <wr-progress :percent='percent' :total='140' :custom-color="colorOption"></wr-progress>
+    <wr-progress value='50' custom-color="#ffee00"></wr-progress>
+    <wr-progress v-model='percent' :custom-color="colorOption"></wr-progress>
+    <wr-progress v-model='percent' :total='140' :custom-color="colorOption"></wr-progress>
     <wr-button @click='percent+=10'>percent+10</wr-button>
   </template>
   <script>

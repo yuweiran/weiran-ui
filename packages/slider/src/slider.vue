@@ -1,6 +1,6 @@
 <template>
-  <div @click="handleChangeSliderState" :style="{height: height?height+'px':vertical?'100px':'8px'}"
-    @mouseleave="handleSliderLeave" @mousemove="handleSliderHover" :class="{'wr-slider':true,'is-vertical':vertical}"
+  <div @click="handleChangeSliderState" :style="{ height: height ? height + 'px' : vertical ? '100px' : '8px' }"
+    @mouseleave="handleSliderLeave" @mousemove="handleSliderHover" :class="{ 'wr-slider': true, 'is-vertical': vertical }"
     ref="slider">
     <div class="wr-slider-loaded" :style="[!vertical ? { width: currentValue + '%' } : { height: currentValue + '%' }]">
       <div class="wr-slider-button" @mouseleave="handleControllerLeave" @mouseover="handleControllerOver"
@@ -193,6 +193,9 @@ export default {
               })
               this.currentValue = target
             })
+          }
+          if (val > this.total) {
+            this.$emit('input', this.total)
           }
         }
       },

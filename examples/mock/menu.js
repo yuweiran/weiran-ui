@@ -1,7 +1,7 @@
 
     const menuData = [
       {
-      path:"/wrui/basic",
+      path:"/wrui/components/basic",
       children:[
         {
       path:"button",
@@ -23,7 +23,7 @@
     }  
     ,
 {
-      path:"/wrui/data",
+      path:"/wrui/components/data",
       children:[
         {
       path:"tree",
@@ -55,7 +55,7 @@
     }  
     ,
 {
-      path:"/wrui/form",
+      path:"/wrui/components/form",
       children:[
         {
       path:"input",
@@ -87,7 +87,7 @@
     }  
     ,
 {
-      path:"/wrui/notice",
+      path:"/wrui/components/notice",
       children:[
         {
       path:"message-box",

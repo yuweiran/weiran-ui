@@ -63,7 +63,7 @@ export default {
   mounted() {
     this.handleResizeWindow()
     this.hiddenAside =
-      location.href.indexOf("/wrui/guide") !== -1 ? true : false;
+      location.href.indexOf("/wrui/components/") !== -1 ? false : true;
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResizeWindow)

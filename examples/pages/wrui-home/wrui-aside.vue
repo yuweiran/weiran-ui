@@ -39,9 +39,11 @@ export default {
   },
   methods: {
     nodeClick(path, activePath) {
+      console.log(path)
       if (this.$route.fullPath !== path) {
         this.$router.replace(path)
         this.setActivePath(activePath)
+        //这是用来解决刷新时左侧目录高亮标签丢失问题
         sessionStorage.setItem('activeRoutePath', path)
         this.$emit('scrolltop')
       }
@@ -152,7 +154,7 @@ export default {
     }
 
     .is-active {
-      background-color: #e2caf5 !important
+      background-color: #C3D2FB !important
     }
   }
 
